@@ -1,4 +1,4 @@
-Team members:
-Makiko Fujimoto
-Neli Jasuja
-Brett Solow
+lab4
+====
+
+Lab 4: Programming with Javascript
