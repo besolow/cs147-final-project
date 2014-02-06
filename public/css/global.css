@@ -42,7 +42,8 @@ a.thumbnail:hover {
 
 .btn-primary{
     background: none;
-    background: #428bca;
+    background: #E94E77;
+    border-color: #E94E77;
 }
 
 #search-bar{
