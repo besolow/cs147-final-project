@@ -1,0 +1,46 @@
+.custom-nav-wrapper {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid black;
+    z-index: 1000;
+}
+
+.custom-nav {
+    background: white;
+    position: absolute;
+    height: 45px;
+    width: 100%;
+    z-index: 9999;
+}
+
+body {
+    padding-top: 45px;
+}
+
+.lower-body {
+    padding-top: 100px;
+}
+
+a.thumbnail {
+    color: black;
+}
+
+a.thumbnail:hover {
+    text-decoration: none;
+}
+
+.btn-default{
+    background: none;
+    background: white;
+}
+
+#search-bar{
+    display: none;
+}
+
+#search-bar input {
+    width: 70%;
+    display: inline-block;
+}
