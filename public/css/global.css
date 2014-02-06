@@ -19,6 +19,10 @@ body {
     padding-top: 45px;
 }
 
+body.tmpfix{
+    padding-top:0px;
+}
+
 .lower-body {
     padding-top: 100px;
 }
@@ -36,6 +40,11 @@ a.thumbnail:hover {
     background: white;
 }
 
+.btn-primary{
+    background: none;
+    background: #428bca;
+}
+
 #search-bar{
     display: none;
 }
@@ -43,4 +52,17 @@ a.thumbnail:hover {
 #search-bar input {
     width: 70%;
     display: inline-block;
+}
+
+.new-topbar{
+    padding: 20px 0px 20px 0px;
+}
+
+.new-topbar-text{
+    font-size: 18pt;
+}
+
+#tags{
+    padding:5px 0px;
+    word-wrap: break-word;
 }

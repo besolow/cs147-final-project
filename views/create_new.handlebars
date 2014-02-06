@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
-  <link href="/css/introHCI.css" rel="stylesheet">
+  <link href="/css/global.css" rel="stylesheet">
   <!-- this is a comment in HTML -->
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -18,20 +18,35 @@
       <![endif]-->        
     </head>
 
-    <body>
-      <div class="container text-center">
-        <button class="btn btn-default pull-left">Cancel</button>
-        <span>New Entry</span>
-        <button class="btn btn-default pull-right">Save</button>
-      </div>
-      
+    <body class="tmpfix">
       <div class="container">
+
+        <div class="new-topbar text-center">
+          <a class="btn btn-default pull-left" href="home">Cancel</a>
+          <span class="new-topbar-text">New Entry</span>
+          <a class="btn btn-primary pull-right" href="home">Save</a>
+        </div>
+        
+        <div class="input-group input-group-sm">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-tag"></span>
+          </span>
+          <input type="text" class="form-control" id="addtag-text" placeholder="Add tags"/>
+          <span class="input-group-btn">
+            <button class="btn btn-primary btn-sm" id="addtag">Add</button>
+          </span>
+        </div>
+
+        <div id="tags">
+        </div>
+
         <form>
-          <textarea class="form-control" rows="3" id="entryText"></textarea>
+          <textarea class="form-control" rows="20" id="entryText" placeholder="How was your day?"></textarea>
         </form>
-    </div>
+      </div>
 
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/global.js"></script>
   </body>
   </html>
