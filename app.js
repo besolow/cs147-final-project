@@ -17,6 +17,7 @@ var time = require('./routes/time');
 var emotion = require('./routes/emotion');
 var entry = require('./routes/entry');
 var create_new = require('./routes/create_new');
+var edit = require('./routes/edit');
 
 
 // Example route
@@ -53,6 +54,7 @@ app.get('/tags', tags.view);
 app.get('/emotion', emotion.view);
 app.get('/entry', entry.view);
 app.get('/create_new', create_new.view);
+app.get('/edit', edit.view);
 
 // Example route
 // app.get('/users', user.list);
