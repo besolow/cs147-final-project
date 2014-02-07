@@ -18,6 +18,7 @@ var emotion = require('./routes/emotion');
 var entry = require('./routes/entry');
 var create_new = require('./routes/create_new');
 var edit = require('./routes/edit');
+var settings = require('./routes/settings');
 
 
 // Example route
@@ -55,6 +56,7 @@ app.get('/emotion', emotion.view);
 app.get('/entry', entry.view);
 app.get('/create_new', create_new.view);
 app.get('/edit', edit.view);
+app.get('/settings', settings.view);
 
 // Example route
 // app.get('/users', user.list);
