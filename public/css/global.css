@@ -80,3 +80,7 @@ a.thumbnail:hover {
     padding:5px 0px;
     word-wrap: break-word;
 }
+
+.padding-top {
+    padding-top: 110px;
+}
