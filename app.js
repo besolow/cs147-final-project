@@ -14,6 +14,8 @@ var project = require('./routes/project');
 var home = require('./routes/home');
 var tags = require('./routes/tags');
 var time = require('./routes/time');
+var emotion = require('./routes/emotion');
+var entry = require('./routes/entry');
 var create_new = require('./routes/create_new');
 
 
@@ -48,6 +50,8 @@ app.get('/login', login.view);
 app.get('/home', home.view);
 app.get('/time', time.view);
 app.get('/tags', tags.view);
+app.get('/emotion', emotion.view);
+app.get('/entry', entry.view);
 app.get('/create_new', create_new.view);
 
 // Example route
