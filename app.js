@@ -13,6 +13,9 @@ var login = require('./routes/login')
 var project = require('./routes/project');
 var home = require('./routes/home');
 var tags = require('./routes/tags');
+var time = require('./routes/time');
+var create_new = require('./routes/create_new');
+
 
 // Example route
 // var user = require('./routes/user');
@@ -43,8 +46,10 @@ if ('development' == app.get('env')) {
 app.get('/', index.view);
 app.get('/login', login.view);
 app.get('/home', home.view);
+app.get('/time', time.view);
 app.get('/tags', tags.view);
-app.get('/project/:name', project.viewProject);
+app.get('/create_new', create_new.view);
+
 // Example route
 // app.get('/users', user.list);
 

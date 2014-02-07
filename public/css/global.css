@@ -19,7 +19,11 @@ body {
     background: #F4EAD5;
 }
 
-.container {
+body.tmpfix{
+    padding-top:0px;
+}
+
+.lower-body {
     padding-top: 100px;
 }
 
@@ -49,7 +53,10 @@ a.thumbnail:hover {
 
 }
 
-.search-form {
+.btn-primary{
+    background: none;
+    background: #E94E77;
+    border-color: #E94E77;
 }
 
 #search-bar{
@@ -59,4 +66,17 @@ a.thumbnail:hover {
 #search-bar input {
     width: 70%;
     display: inline-block;
+}
+
+.new-topbar{
+    padding: 20px 0px 20px 0px;
+}
+
+.new-topbar-text{
+    font-size: 18pt;
+}
+
+#tags{
+    padding:5px 0px;
+    word-wrap: break-word;
 }
