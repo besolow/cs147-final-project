@@ -9,11 +9,10 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
-    console.log("Javascript connected!");
     $("#search-button").click(function(e) {
         e.preventDefault();
-        $("#search-bar").slideToggle(function() {
-            $('body').toggleClass('lower-body');
+        $("#search-bar").fadeToggle(function() {
+            $("#sort-bar").toggle();
         });
     });
 

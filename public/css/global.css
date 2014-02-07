@@ -1,26 +1,30 @@
-.custom-nav-wrapper {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100%;
-    border-bottom: 1px solid black;
-    z-index: 1000;
+/*Background beige: #F4EAD5
+seafoam: #C6E5D9
+pinkish: #D68189*/
+
+.lower-nav {
+    top: 45px;
+    text-align: center;
+    background: #C6E5D9;
+    line-height: 50px;
+    z-index: 1020;
+    padding: 0 15px;
 }
 
-.custom-nav {
-    background: white;
-    position: absolute;
-    height: 45px;
-    width: 100%;
-    z-index: 9999;
+.upper-nav {
+    background: #D68189
 }
 
 body {
-    padding-top: 45px;
+    background: #F4EAD5;
+}
+
+.container {
+    padding-top: 100px;
 }
 
 .lower-body {
-    padding-top: 100px;
+    padding-top: 90;
 }
 
 a.thumbnail {
@@ -34,6 +38,18 @@ a.thumbnail:hover {
 .btn-default{
     background: none;
     background: white;
+}
+
+.navbar .btn {
+    border: none;
+    box-shadow: none;
+    outline: none;
+    background: none;
+    color: #333333;
+
+}
+
+.search-form {
 }
 
 #search-bar{
