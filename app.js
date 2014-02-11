@@ -6,7 +6,9 @@
 var express = require('express');
 var http = require('http');
 var path = require('path');
-var handlebars = require('express3-handlebars')
+var handlebars = require('express3-handlebars');
+
+var moment = require('./public/js/moment.min.js');
 
 var login = require('./routes/login')
 var project = require('./routes/project');
@@ -25,10 +27,20 @@ var search = require('./routes/search');
 
 var app = express();
 
+hbs = handlebars.create({
+    helpers: {
+        //usage: {{dateFormat 1392115303100 format="MM/DD/YYYY"}}
+        dateFormat: function(context, block) {
+                var f = block.hash.format || "MMM DD, YYYY hh:mm:ss A";
+                return moment(context).format(f); //had to remove Date(context)
+        }
+    }
+});
+
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', handlebars());
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.use(express.favicon());
 app.use(express.logger('dev'));
