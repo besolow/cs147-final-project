@@ -24,4 +24,6 @@ function initializePage() {
         }
     });
 
+    $(".thumbnail").dotdotdot();
+
 }
