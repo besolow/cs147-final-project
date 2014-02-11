@@ -35,6 +35,10 @@ body.tmpfix{
     max-height: 300px;
 }
 
+.thumbnail.preview {
+    max-height: 100px;
+}
+
 a.thumbnail {
     color: black;
 }
