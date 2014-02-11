@@ -19,22 +19,32 @@
     </head>
 
     <body>
-      {{> toolbar}}
-      {{> editbar}}
       <div class="container padding-top">
+        {{> toolbar}}
+        {{> sortbar}}
+        <div class="row text-center">
+          <h4>Search for: <em> {{query}} </em> </h4>
+        </div>
+        {{#each results}}
         <div class="row">
           <div class="col-sm-6">
-              <p class ="dateAndTime">2/4 10:23PM</p>
-              <div class="tags">
-              <span class="label label-default">Love</span>
-              <span class="label label-default">CS147</span>
+            <a href="entry" class="thumbnail preview">
+              <p class="dateAndTime">{{date}}</p>
+              <div id="tags">
+                <span class="label label-default">Love</span>
+                <span class="label label-default">CS147</span>
               </div>
-              Lorem ipsum dolor sit amet, vel te appetere definitionem, has altera possit adipiscing in, nam id etiam voluptua honestatis. Pri an conceptam scribentur, duo ad postea dolorum. Ei sea rebum. Lorem ipsum dolor sit amet, vel te appetere definitionem, has altera possit adipiscing in, nam id etiam voluptua honestatis. Pri an conceptam scribentur, duo ad postea dolorum. Ei sea rebum. Lorem ipsum dolor sit amet, vel te appetere definitionem, has altera possit adipiscing in, nam id etiam voluptua honestatis. Pri an conceptam scribentur, duo ad postea dolorum. Ei sea rebum. Lorem ipsum dolor sit amet, vel te appetere definitionem, has altera possit adipiscing in, nam id etiam voluptua honestatis. Pri an conceptam scribentur, duo ad postea dolorum. Ei sea rebum.
+              <p>{{text}}
+              </p>
+            </a>
           </div>
         </div>
+        {{/each}}
+        
       </div>
 
       <script src="https://code.jquery.com/jquery.js"></script>
+      <script src="/js/jquery.dotdotdot.min.js"
       <script src="/js/bootstrap.min.js"></script>
       <script src="/js/global.js"></script>
 

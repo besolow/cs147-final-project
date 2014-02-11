@@ -31,6 +31,14 @@ body.tmpfix{
     padding-top: 90;
 }
 
+.thumbnail {
+    max-height: 300px;
+}
+
+.thumbnail.preview {
+    max-height: 100px;
+}
+
 a.thumbnail {
     color: black;
 }
@@ -76,11 +84,20 @@ a.thumbnail:hover {
     font-size: 18pt;
 }
 
-#tags{
-    padding:5px 0px;
+.tags{
+    padding:5px 0px 10px 0px;
     word-wrap: break-word;
 }
 
 .padding-top {
     padding-top: 110px;
+}
+
+.dateAndTime {
+    margin: 0px;
+    font-weight: bold;
+}
+
+.deleteButton {
+    margin-top: 10px;
 }
