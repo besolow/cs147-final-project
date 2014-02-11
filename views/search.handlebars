@@ -31,8 +31,9 @@
             <a href="entry" class="thumbnail preview">
               <p class="dateAndTime">{{date}}</p>
               <div id="tags">
-                <span class="label label-default">Love</span>
-                <span class="label label-default">CS147</span>
+              {{#each tags}}
+                <span class="label label-default">{{.}}</span>
+              {{/each}}
               </div>
               <p>{{text}}
               </p>
@@ -44,7 +45,7 @@
       </div>
 
       <script src="https://code.jquery.com/jquery.js"></script>
-      <script src="/js/jquery.dotdotdot.min.js"
+      <script src="/js/jquery.dotdotdot.min.js"></script>
       <script src="/js/bootstrap.min.js"></script>
       <script src="/js/global.js"></script>
 

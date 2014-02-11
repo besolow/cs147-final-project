@@ -52,7 +52,7 @@ app.get('/home', home.view);
 app.get('/time', time.view);
 app.get('/tags', tags.view);
 app.get('/emotion', emotion.view);
-app.get('/entry', entry.view);
+app.get('/entry/:datetime', entry.view);
 app.get('/create_new', create_new.view);
 app.get('/edit', edit.view);
 app.get('/settings', settings.view);
