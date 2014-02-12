@@ -20,13 +20,13 @@
 
     <body class="tmpfix">
       <div class="container">
-
+        <form class="entry-form" role="form" action="/save" method="post">
         <div class="new-topbar text-center">
-          <a class="btn btn-default pull-left" href="home">Cancel</a>
+          <a class="btn btn-default pull-left" href="/home">Cancel</a>
           <span class="new-topbar-text">New Entry</span>
-          <a class="btn btn-primary pull-right" href="home">Save</a>
+          <input type="submit" id="entrySubmitBtn" class="btn btn-primary pull-right" value="Save">
         </div>
-        
+
         <div class="input-group input-group-sm">
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-tag"></span>
@@ -37,12 +37,13 @@
           </span>
         </div>
 
-        <div id="tags">
+        <div class="tags">
         </div>
+        <input type="hidden" id="hiddenTags" name="hiddenTags" value="">
 
-        <form>
-          <textarea class="form-control" rows="20" id="entryText" placeholder="How was your day?"></textarea>
-        </form>
+          
+          <textarea class="form-control" rows="20" id="entryText" placeholder="How was your day?" name="entryText"></textarea>
+          </form>
       </div>
 
     <script src="https://code.jquery.com/jquery.js"></script>
