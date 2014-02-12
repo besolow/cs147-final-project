@@ -28,11 +28,11 @@
         {{#each results}}
         <div class="row">
           <div class="col-sm-6">
-            <a href="entry" class="thumbnail preview">
-              <p class="dateAndTime">{{date}}</p>
+            <a href="entry/{{datetime}}" class="thumbnail preview">
+              <p class="dateAndTime">{{dateFormat datetime format="MM/DD/YY HH:mm"}}</p>
               <div id="tags">
               {{#each tags}}
-                <span class="label label-default">{{.}}</span>
+                <span class="label label-default tag-link">{{.}}</span>
               {{/each}}
               </div>
               <p>{{text}}
@@ -48,6 +48,7 @@
       <script src="/js/jquery.dotdotdot.min.js"></script>
       <script src="/js/bootstrap.min.js"></script>
       <script src="/js/global.js"></script>
+      <script src="/js/previews.js"></script>
 
     </body>
     </html>

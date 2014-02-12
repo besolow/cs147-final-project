@@ -23,7 +23,14 @@ function initializePage() {
             $("#tags").append('<span class="label label-default">'+newtag+'</span>&nbsp;');
         }
     });
-
-    $(".thumbnail").dotdotdot();
+    
+    //make tags clickable to view by tag
+    $(".tag-link").click(function(e) {
+        e.preventDefault();
+        var tagName = $(this).text();
+        if (tagName != undefined || tagName != null) {
+            window.location = '/search?queryField=tag&queryString=' + tagName;
+        }
+    });
 
 }
