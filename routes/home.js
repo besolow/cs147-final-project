@@ -1,5 +1,8 @@
 var data = require('../data.json');
 
 exports.view = function(req, res) {
-    res.render('home', data);
-}
+    var entries = data.entries.slice().reverse();
+    res.render('home', {
+        'entries': entries
+    });
+};

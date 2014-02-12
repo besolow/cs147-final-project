@@ -21,6 +21,7 @@ var create_new = require('./routes/create_new');
 var edit = require('./routes/edit');
 var settings = require('./routes/settings');
 var search = require('./routes/search');
+var save = require('./routes/save');
 
 // Example route
 // var user = require('./routes/user');
@@ -69,6 +70,7 @@ app.get('/create_new', create_new.view);
 app.get('/edit', edit.view);
 app.get('/settings', settings.view);
 app.get('/search', search.view);
+app.post('/save', save.save);
 
 // Example route
 // app.get('/users', user.list);

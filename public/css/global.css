@@ -67,6 +67,16 @@ a.thumbnail:hover {
     border-color: #E94E77;
 }
 
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open {
+    background: none;
+    background: #990022;
+    border-color: #990022;
+}
+
 #search-bar{
     display: none;
 }
@@ -85,7 +95,7 @@ a.thumbnail:hover {
 }
 
 .tags{
-    padding:5px 0px 10px 0px;
+    padding:5px 0px 5px 0px;
     word-wrap: break-word;
 }
 
@@ -100,4 +110,9 @@ a.thumbnail:hover {
 
 .deleteButton {
     margin-top: 10px;
+}
+
+.activeEmotion{
+    color: blue;
+    font-size: 24px;
 }

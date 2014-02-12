@@ -16,13 +16,18 @@ function initializePage() {
         });
     });
 
+    
     $("#addtag").click(function(e) { 
         e.preventDefault();
         var newtag = $("#addtag-text").val();
         if (newtag!=""){
-            $("#tags").append('<span class="label label-default">'+newtag+'</span>&nbsp;');
+            $(".tags").append('<span class="label label-default">'+newtag+'</span> ');
+            $("#hiddenTags").val($("#hiddenTags").val()+"|"+newtag);
+            $("#addtag-text").val("");
         }
     });
+
+
 
     $(".thumbnail").dotdotdot();
 
