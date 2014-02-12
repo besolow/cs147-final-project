@@ -101,6 +101,6 @@ a.thumbnail:hover {
     font-weight: bold;
 }
 
-.deleteButton {
+#deleteButton {
     margin-top: 10px;
 }

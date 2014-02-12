@@ -23,7 +23,7 @@
 
         <div class="new-topbar text-center">
           <a class="btn btn-default pull-left" href="entry">Cancel</a>
-          <span class="new-topbar-text">New Entry</span>
+          <span class="new-topbar-text">Editing {{dateFormat entry.datetime format="MM/DD/YY HH:mm"}}</span>
           <a class="btn btn-primary pull-right" href="home">Save</a>
         </div>
         
@@ -43,9 +43,12 @@
         </div>
 
         <form>
-          <textarea class="form-control" rows="16" id="entryText">TEXT FROM ENTRY</textarea>
+          <textarea class="form-control" rows="16" id="entryText">{{entry.text}}</textarea>
         </form>
-        <p class="deleteButton btn btn-primary center-block">Delete</p>
+        <form action="/delete_entry" method="post">
+          <input type="hidden" name="datetime" value="{{entry.datetime}}"/>
+          <input type="submit" id="deleteButton" class="btn btn-primary center-block" value="Delete"/>
+        </form>
       </div>
 
     <script src="https://code.jquery.com/jquery.js"></script>
