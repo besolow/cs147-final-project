@@ -23,8 +23,11 @@
 
         <div class="new-topbar text-center">
           <a class="btn btn-default pull-left" href="entry">Cancel</a>
-          <span class="new-topbar-text">Editing {{dateFormat entry.datetime format="MM/DD/YY HH:mm"}}</span>
+          <span class="new-topbar-text">Editing Entry</span>
           <a class="btn btn-primary pull-right" href="home">Save</a>
+        </div>
+        <div class="text-center" id="editDateTime">
+        {{dateFormat entry.datetime format="MM/DD/YY HH:mm"}}
         </div>
         
         <div class="input-group input-group-sm">
@@ -38,12 +41,24 @@
         </div>
 
         <div class="tags">
-        <span class="label label-default">Love</span>
-        <span class="label label-default">CS147</span>
+        {{#each entry.tags}}
+        <span class="label label-default">{{.}}</span>
+        {{/each}}
         </div>
 
+        <select id="editingEmotion" name="emotion" class="form-control input-sm" placeholder="Select your emotion!">
+          <option value="default">How are you feeling?</option>
+          <option value="happy">Happy</option>
+          <option value="sad">Sad</option>
+          <option value="excited">Excited</option>
+          <option value="angry">Angry</option>
+          <option value="tired">Tired</option>
+        </select>
+
         <form>
-          <textarea class="form-control" rows="16" id="entryText">{{entry.text}}</textarea>
+          <div id="textEntryWrapper">
+          <textarea class="form-control" rows="15" id="entryText">{{entry.text}}</textarea>
+          </div>
         </form>
         <form action="/delete_entry" method="post">
           <input type="hidden" name="datetime" value="{{entry.datetime}}"/>

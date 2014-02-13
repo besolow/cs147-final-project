@@ -123,3 +123,8 @@ a.thumbnail:hover {
 #textEntryWrapper{
     padding:5px 0px;
 }
+
+#editDateTime{
+    padding: 0px 0px 5px 0px;
+    font-size: 14pt;
+}
