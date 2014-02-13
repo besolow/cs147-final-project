@@ -115,7 +115,11 @@ a.thumbnail:hover {
     margin-top: 10px;
 }
 
-.activeEmotion{
-    color: blue;
+.activeSort{
+    color: #D68189;
     font-size: 24px;
+}
+
+#textEntryWrapper{
+    padding:5px 0px;
 }
