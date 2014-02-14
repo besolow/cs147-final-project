@@ -15,7 +15,7 @@ pinkish: #D68189
 }
 
 .upper-nav {
-    background: #D68189
+    background: #D68189;
 }
 
 body {
@@ -127,4 +127,9 @@ a.thumbnail:hover {
 #editDateTime{
     padding: 0px 0px 5px 0px;
     font-size: 14pt;
+}
+
+.emotion{
+    font-variant: small-caps;
+    color: #D68189;
 }

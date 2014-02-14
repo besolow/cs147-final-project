@@ -1,13 +1,13 @@
 {
 	"entries": [
 		{
-			"datetime": 1392111792690,
+			"datetime": 1392107751490,
 			"text": "Today, Brett, Makiko and I got together to finish coding up part of assignment 6. There was a lot of work that needed to be done, and we got it done in record time! It felt super good. ",
 			"tags": ["CS147", "love", "coding"],			
 			"emotion": "happy"
 		},
 		{
-			"datetime": 1392110792690,
+			"datetime": 1392108751690,
 			"text": "Today sucked. I was totally ready to go to bed when I got a text saying I needed to show up to this random party that I wasn't going to go to. And then I had to go because I wanted to support my friends, but it turned out to be super exhausting. I mean, parties are great, but it just isn't that great when you're ready for bed...",
 			"tags": [],			
 			"emotion": "tired"
@@ -19,13 +19,13 @@
 			"emotion": "tired"
 		},
 		{
-			"datetime": 1392108751690,
+			"datetime": 1392110792690,
 			"text": "I had an awesome day today when I was able to quickly find the json library I was looking for. It's the small joys in life that really make it... I should learn to appreciate the little things more.",
 			"tags": ["coding"],			
 			"emotion": "happy"
 		},
 		{
-			"datetime": 1392107751490,
+			"datetime": 1392111792690,
 			"text": "Got in a fight with my mom today. It sucked. I know I love her and all, but sometimes the things she say frustrate me to no end. Ugh. Wish I could be mature enough of a person to appreciate it but damn sometimes it's super annoying...",
 			"tags": ["love", "hate", "relationship"],			
 			"emotion": "sad"
