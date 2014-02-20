@@ -8,7 +8,7 @@ exports.view = function(req, res) {
     var resultsText = 'Search results for: ';
     var results = []
     var entries = data['entries'];
-    
+
     for (i in entries) {
         //view by emotion
         if(queryField == 'emotion') {
@@ -22,12 +22,8 @@ exports.view = function(req, res) {
             }
         //view by time
         } else if(queryField == 'time') {
-            var date = entries[i]['datetime'];
-            console.log(date);
-            //console.log(moment().month(entries[i]['datetime']));
-            if(moment().month(entries[i]['datetime']) == queryString) {
+            if(moment().format('MMMM')+" "+moment().format('YYYY') == queryString) {
                 results.push(entries[i]);
-                console.log(entries[i]);
             }
         //search text
         } else {
@@ -38,13 +34,12 @@ exports.view = function(req, res) {
     }
     if (results.length == 0) {
         resultsText = 'No results for: ';
-    }
-    if(queryField == 'emotion') {
+    }else if(queryField == 'emotion') {
         resultsText = 'Entries marked as: ';
     }else if(queryField == 'tag') {
         resultsText = 'Entries tagged as: ';
     }else if(queryField == 'time'){
-        resultsText = "Entries from ";
+        resultsText = "Entries from: ";
     }
 
 
