@@ -34,9 +34,11 @@ exports.view = function(req, res) {
             if(entries[i]['text'].toLowerCase().indexOf(query) != -1) {
                 results.push(entries[i]);
             }
-        }
+        } 
     }
-
+    if (results.length == 0) {
+        resultsText = 'No results for: ';
+    }
     if(queryField == 'emotion' || queryField == 'tag') {
         resultsText = 'Entries tagged as: ';
     }else if(queryField == 'time'){

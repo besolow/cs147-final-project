@@ -23,6 +23,7 @@ var edit = require('./routes/edit');
 var settings = require('./routes/settings');
 var search = require('./routes/search');
 var save = require('./routes/save');
+var new_account = require('./routes/new_account');
 
 // Example route
 // var user = require('./routes/user');
@@ -73,6 +74,7 @@ app.get('/settings', settings.view);
 app.get('/search', search.view);
 app.post('/delete_entry', delete_entry.deleteEntry);
 app.post('/save', save.save);
+app.get('/new_account', new_account.view);
 
 // Example route
 // app.get('/users', user.list);
