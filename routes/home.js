@@ -4,14 +4,13 @@ exports.view = function(req, res) {
     var entries = data.entries.slice().reverse();
     var emotions = [];
     for (i in entries){
-        if (i.emotion!="default"){
-            var tmp = "<p>I'm feeling "+i.emotion+"</p>";
-            emotions.push(tmp);
+        if (entries[i].emotion!="default"){
+            var tmp = "I'm feeling "+entries[i].emotion;
+            entries[i]["emotionText"] = tmp;
         }else{
-            emotions.push("");
+            entries[i]["emotionText"] = "";
         }
     }
-    entries["emotionText"] = emotions;
     
     res.render('home', {
         'entries': entries

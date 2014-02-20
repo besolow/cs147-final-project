@@ -37,12 +37,12 @@ function initializePage() {
     });
 
     $("#tag-sort-pop").click(function(e) {
-        $.get("/tag-sort", {sortBy: "pop"}, displaySortResult);
-    }
+        $.get("/tag_sort/pop", displaySortResult);
+    });
 
     $("#tag-sort-abc").click(function(e) {
-        $.get("/tag-sort", {sortBy: "abc"}, displaySortResult);
-    }
+        $.get("/tag_sort/abc", displaySortResult);
+    });
 
 }
 

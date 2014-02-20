@@ -7,9 +7,6 @@ exports.save = function(req, res) {
     var emotion = req.body.emotion;
     console.log(emotion);
     allTags.splice(0,1);
-    if (emotion==="default"){
-        emotion = "neutral";
-    }
 
     var newEntry = {
         "datetime": Date.now(),
