@@ -36,4 +36,17 @@ function initializePage() {
         }
     });
 
+    $("#tag-sort-pop").click(function(e) {
+        $.get("/tag_sort/pop", displaySortResult);
+    });
+
+    $("#tag-sort-abc").click(function(e) {
+        $.get("/tag_sort/abc", displaySortResult);
+    });
+
 }
+
+function displaySortResult(result){
+    console.log("Displays sorted results!");
+}
+

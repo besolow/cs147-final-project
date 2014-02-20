@@ -47,12 +47,9 @@
         </div>
 
         <select id="editingEmotion" name="emotion" class="form-control input-sm" placeholder="Select your emotion!">
-          <option value="default">How are you feeling?</option>
-          <option value="happy">Happy</option>
-          <option value="sad">Sad</option>
-          <option value="excited">Excited</option>
-          <option value="angry">Angry</option>
-          <option value="tired">Tired</option>
+        {{#each emotions}}
+          <option value="{{val}}" {{#if bool}}selected{{/if}}>{{text}}</option>
+        {{/each}}
         </select>
 
         <form>
