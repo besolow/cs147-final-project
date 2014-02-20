@@ -21,6 +21,7 @@ exports.view = function(req, res) {
 
 
     function entriesLoaded(err, entries) {
+        console.log(entries);
         if(err){console.log(err); res.send(500);}
         var emotions = [];
         for (i in entries){
