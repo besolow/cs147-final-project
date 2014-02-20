@@ -44,6 +44,8 @@ function initializePage() {
         $.get("/tag_sort/abc", displaySortResult);
     });
 
+   
+
 }
 
 function displaySortResult(result){
