@@ -4,7 +4,8 @@
 <head>
   <title>Welcome!</title>    
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
   <link href="/css/global.css" rel="stylesheet">
@@ -25,11 +26,16 @@
         <div class="row text-center">
           <h4>All entries</h4>
         </div>
-
+        {{#if message}}
+          <div class="alert alert-{{message.[0]}} alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          {{message.[1]}}
+          </div>
+        {{/if}}
         {{#each entries}}
         <div class="row">
           <div class="col-sm-6">
-            <a href="entry/{{datetime}}" class="thumbnail">
+            <a href="entry/{{_id}}" class="thumbnail">
               <p class="dateAndTime">{{dateFormat datetime format="MM/DD/YY HH:mm"}}</p>
               <div class="tags">
               {{#each tags}}

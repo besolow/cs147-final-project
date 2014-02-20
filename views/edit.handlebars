@@ -4,7 +4,8 @@
 <head>
   <title>Welcome!</title>    
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
   <link href="/css/global.css" rel="stylesheet">
@@ -47,7 +48,7 @@
         </div>
 
         <select id="editingEmotion" name="emotion" class="form-control input-sm" placeholder="Select your emotion!">
-          <option value="default">How are you feeling?</option>
+          <option value="default">How are you feeling? </option>
           <option value="happy">Happy</option>
           <option value="sad">Sad</option>
           <option value="excited">Excited</option>
@@ -61,7 +62,7 @@
           </div>
         </form>
         <form action="/delete_entry" method="post">
-          <input type="hidden" name="datetime" value="{{entry.datetime}}"/>
+          <input type="hidden" name="_id" value="{{entry._id}}"/>
           <input type="submit" id="deleteButton" class="btn btn-primary center-block" value="Delete"/>
         </form>
       </div>
