@@ -15,15 +15,22 @@ exports.view = function(req, res) {
             "username": username
         })
         .exec(function(err, entries){
-            if(err) {
+            if(err || !entries[0]) {
                 console.log(err);
                 res.send(500);
             } else {
+                var entry = entries[0];
                 console.log(entries);
                 console.log(entries[0]);
+                var emotionText = "";
+                if (entry.emotion!="default"){
+                    var emotionText = "I feel "+entry.emotion;
+                }
                 res.render('entry', {
-                    'entry': entries[0]
+                    'entry': entry,
+                    'emotionText': emotionText
                 });
             }
         });
+
 }

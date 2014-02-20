@@ -5,10 +5,11 @@ exports.view = function(req, res) {
     var queryString = req.query.queryString;
     var query = queryString.toLowerCase();
     var queryField = req.query.queryField;
-    var resultsText = 'Search for: ';
-    var results = []
+    var resultsText = 'Search results for: ';
+    var results = [];
     var entries = data['entries'];
-    
+
+
     for (i in entries) {
         //view by emotion
         if(queryField == 'emotion') {
@@ -20,16 +21,26 @@ exports.view = function(req, res) {
             if(entries[i]['tags'].indexOf(queryString) != -1) {
                 results.push(entries[i]);
             }
+        //view by time
+        } else if(queryField == 'time') {
+            if(moment().format('MMMM')+" "+moment().format('YYYY') == queryString) {
+                results.push(entries[i]);
+            }
         //search text
         } else {
             if(entries[i]['text'].toLowerCase().indexOf(query) != -1) {
                 results.push(entries[i]);
             }
-        }
+        } 
     }
-
-    if(queryField == 'emotion' || queryField == 'tag') {
-        resultsText = 'Viewing entries tagged as: ';
+    if (results.length == 0) {
+        resultsText = 'No results for: ';
+    }else if(queryField == 'emotion') {
+        resultsText = 'Entries marked as: ';
+    }else if(queryField == 'tag') {
+        resultsText = 'Entries tagged as: ';
+    }else if(queryField == 'time'){
+        resultsText = "Entries from: ";
     }
 
 

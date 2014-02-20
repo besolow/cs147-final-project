@@ -22,6 +22,15 @@ exports.view = function(req, res) {
 
     function entriesLoaded(err, entries) {
         if(err){console.log(err); res.send(500);}
+        var emotions = [];
+        for (i in entries){
+            if (entries[i].emotion!="default"){
+                var tmp = "I feel "+entries[i].emotion;
+                entries[i]["emotionText"] = tmp;
+            }else{
+                entries[i]["emotionText"] = "";
+            }
+        }
         res.render('home', {
             'entries':entries,
             'message':message

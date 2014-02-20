@@ -9,7 +9,7 @@ var path = require('path');
 var handlebars = require('express3-handlebars');
 var mongoose = require('mongoose');
 
-var moment = require('./public/js/moment.min.js');
+moment = require('./public/js/moment.min.js');
 
 var login = require('./routes/login');
 var user = require('./routes/user');
@@ -25,6 +25,8 @@ var edit = require('./routes/edit');
 var settings = require('./routes/settings');
 var search = require('./routes/search');
 var save = require('./routes/save');
+var tag_sort = require('./routes/tag_sort');
+var new_account = require('./routes/new_account');
 
 // Example route
 // var user = require('./routes/user');
@@ -88,8 +90,10 @@ app.get('/settings', settings.view);
 app.get('/search', search.view);
 app.post('/login_action', user.login);
 app.post('/logout', user.logout);
+app.get('/tag_sort/:sortBy', tag_sort.sortTag);
 app.post('/delete_entry', delete_entry.deleteEntry);
 app.post('/save', save.save);
+app.get('/new_account', new_account.view);
 
 // Example route
 // app.get('/users', user.list);
