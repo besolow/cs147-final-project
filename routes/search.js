@@ -39,7 +39,9 @@ exports.view = function(req, res) {
     if (results.length == 0) {
         resultsText = 'No results for: ';
     }
-    if(queryField == 'emotion' || queryField == 'tag') {
+    if(queryField == 'emotion') {
+        resultsText = 'Entries marked as: ';
+    }else if(queryField == 'tag') {
         resultsText = 'Entries tagged as: ';
     }else if(queryField == 'time'){
         resultsText = "Entries from ";
