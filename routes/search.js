@@ -6,9 +6,10 @@ exports.view = function(req, res) {
     var query = queryString.toLowerCase();
     var queryField = req.query.queryField;
     var resultsText = 'Search for: ';
-    var results = []
+    var results = [];
     var entries = data['entries'];
-    
+   
+
     for (i in entries) {
         //view by emotion
         if(queryField == 'emotion') {
