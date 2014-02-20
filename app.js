@@ -8,7 +8,7 @@ var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars');
 
-var moment = require('./public/js/moment.min.js');
+moment = require('./public/js/moment.min.js');
 
 var login = require('./routes/login')
 var project = require('./routes/project');
