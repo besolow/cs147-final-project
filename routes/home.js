@@ -5,7 +5,7 @@ exports.view = function(req, res) {
     var emotions = [];
     for (i in entries){
         if (entries[i].emotion!="default"){
-            var tmp = "I'm feeling "+entries[i].emotion;
+            var tmp = "I feel "+entries[i].emotion;
             entries[i]["emotionText"] = tmp;
         }else{
             entries[i]["emotionText"] = "";

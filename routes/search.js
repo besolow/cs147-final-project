@@ -35,10 +35,14 @@ exports.view = function(req, res) {
             if(entries[i]['text'].toLowerCase().indexOf(query) != -1) {
                 results.push(entries[i]);
             }
-        }
+        } 
     }
-
-    if(queryField == 'emotion' || queryField == 'tag') {
+    if (results.length == 0) {
+        resultsText = 'No results for: ';
+    }
+    if(queryField == 'emotion') {
+        resultsText = 'Entries marked as: ';
+    }else if(queryField == 'tag') {
         resultsText = 'Entries tagged as: ';
     }else if(queryField == 'time'){
         resultsText = "Entries from ";

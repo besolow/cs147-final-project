@@ -34,6 +34,7 @@ console.log("adding things");
      .data(data)
      .enter()
        .append("rect")
+       .on("click", function(d){click(d)})
        .attr("y", function(d,i) {return i * 50;})
        .attr("width", function(d) {return d.count * 30;})
        .attr("height", 48)
@@ -48,5 +49,8 @@ console.log("adding things");
            .attr("y", function(d,i) {return i * 50 + 24;})
            .text(function (d) {return d.emotion; })
 
-
+  function click(d) {
+    console.log(d.emotion);
+    window.location.href="/search?queryString="+d.emotion+"&queryField=emotion";
+  }
 }

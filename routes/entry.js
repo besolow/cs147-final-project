@@ -7,7 +7,7 @@ exports.view = function(req, res) {
     for (entry in data['entries']){
         if (data['entries'][entry]['datetime']==datetime){
             if (data['entries'][entry].emotion!="default"){
-                emotionText = "I'm feeling "+data['entries'][entry].emotion;
+                emotionText = "I feel "+data['entries'][entry].emotion;
             }
             break;
         }
