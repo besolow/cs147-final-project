@@ -1,20 +1,36 @@
-var data = require('../data.json');
+var models = require('../models');
 
 exports.view = function(req, res) {
-    var datetime = req.params.datetime;
-    var entry = null;
-    var emotionText = "";
-    for (entry in data['entries']){
-        if (data['entries'][entry]['datetime']==datetime){
-            if (data['entries'][entry].emotion!="default"){
-                emotionText = "I feel "+data['entries'][entry].emotion;
-            }
-            break;
-        }
+    var username = req.session.username;
+    if(!username){
+        var messages = req.session.messages || [];
+        messages.push(['danger', 'Please login to continue']);
+        res.redirect('/login');
     }
+    var _id = req.params._id;
+    console.log("id "+_id);
+    models.Entry
+        .find({
+            "_id": _id,
+            "username": username
+        })
+        .exec(function(err, entries){
+            if(err || !entries[0]) {
+                console.log(err);
+                res.send(500);
+            } else {
+                var entry = entries[0];
+                console.log(entries);
+                console.log(entries[0]);
+                var emotionText = "";
+                if (entry.emotion!="default"){
+                    var emotionText = "I feel "+entry.emotion;
+                }
+                res.render('entry', {
+                    'entry': entry,
+                    'emotionText': emotionText
+                });
+            }
+        });
 
-    res.render('entry', {
-        'entry': data['entries'][entry],
-        'emotionText': emotionText
-    });
 }
