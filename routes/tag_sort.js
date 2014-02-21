@@ -1,12 +1,42 @@
+var models = require('../models');
+
 exports.sortTag = function(req, res) {
     var sortOption = req.params.sortBy;
-    var results = [];
-    if (sortOption === "pop"){
-        
-    }else if(sortOption === "abc"){
 
+    var user = req.session.username;
+    if (sortOption === "pop"){
+        models.Entry
+            .aggregate( 
+                [
+                {$match : { username : user }},
+                {$unwind : "$tags"},
+                {$group: {
+                    _id: "$tags",
+                    count: {$sum: 1}}},
+                ])
+            
+            .sort( {count: -1} )
+            .exec(entriesLoaded);
+    } else if(sortOption === "abc"){
+        models.Entry
+            .aggregate( 
+                [
+                {$match : { username : user }},
+                {$unwind : "$tags"},
+                {$group: {
+                    _id: "$tags",
+                    count: {$sum: 1}}},
+                ])
+            
+            .sort( {_id: 1} )
+            .exec(entriesLoaded);
     }
-    //requesting params from get request, use to differentiate between abcs and popularity
-    res.json();
+
+
+    function entriesLoaded(err, result) {
+        res.render('tags', {
+            'tags': result
+        });
+    }
 
 }

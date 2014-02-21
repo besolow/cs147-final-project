@@ -24,6 +24,7 @@
         {{> toolbar}}
         {{> tagbar}}
         <h3>Entries by tags</h3>
+        <h5>Sorted by {{sortBy}}</h5>
        <div class="list-group">
        {{#each tags}}
           <a href="/search?queryString={{_id}}&queryField=tag" class="list-group-item">{{_id}}

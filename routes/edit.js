@@ -17,6 +17,11 @@ exports.view = function(req, res) {
         })
         .exec(function(err, entries){
             entry = entries[0];
+            var tagString = ""
+            for (var i=0; i<entry.tags.length; i++){
+                tagString+="|";
+                tagString+=entry.tags[i];
+            }
             if(err || !entries[0]) {
                 console.log(err);
                 res.send(500);
@@ -37,7 +42,8 @@ exports.view = function(req, res) {
                 }
                 res.render('edit', {
                     'entry': entry,
-                    'emotions': emotionArray
+                    'emotions': emotionArray,
+                    'tagString': tagString
                 });
             }
         });

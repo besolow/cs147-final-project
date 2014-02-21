@@ -21,11 +21,13 @@
 
     <body class="tmpfix">
       <div class="container">
-
+        <form class="entry-form" role="form" action="/save/old" method="post">
+        <input type="hidden" name="_id" value="{{entry._id}}"/>
         <div class="new-topbar text-center">
           <a class="btn btn-default pull-left" href="/entry/{{entry._id}}">Cancel</a>
           <span class="new-topbar-text">Edit</span>
-          <a class="btn btn-primary pull-right" href="/entry/{{entry._id}}">Save</a>
+          <input type="submit" id="entrySubmitBtn" class="btn btn-primary pull-right" value="Save">
+
         </div>
         <div class="text-left" id="editDateTime">
         {{dateFormat entry.datetime format="MM/DD/YY HH:mm"}}
@@ -46,16 +48,16 @@
         <span class="label label-default">{{.}}</span>
         {{/each}}
         </div>
+        <input type="hidden" id="hiddenTags" name="hiddenTags" value="{{tagString}}"> 
 
         <select id="editingEmotion" name="emotion" class="form-control input-sm" placeholder="Select your emotion!">
         {{#each emotions}}
           <option value="{{val}}" {{#if bool}}selected{{/if}}>{{text}}</option>
         {{/each}}
         </select>
-
-        <form>
+      
           <div id="textEntryWrapper">
-          <textarea class="form-control" rows="15" id="entryText">{{entry.text}}</textarea>
+          <textarea class="form-control" rows="15" name="entryText">{{entry.text}}</textarea>
           </div>
         </form>
         <form action="/delete_entry" method="post">

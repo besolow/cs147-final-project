@@ -81,7 +81,7 @@ app.get('/', login.view);
 app.get('/login', login.view);
 app.get('/home', home.view);
 app.get('/time', time.view);
-app.get('/tags', tags.view);
+app.get('/tags/:sortBy', tags.sortTag);
 app.get('/emotion', emotion.view);
 app.get('/entry/:_id', entry.view);
 app.get('/create_new', create_new.view);
@@ -90,9 +90,9 @@ app.get('/settings', settings.view);
 app.get('/search', search.view);
 app.post('/login_action', user.login);
 app.post('/logout', user.logout);
-app.get('/tag_sort/:sortBy', tag_sort.sortTag);
+//app.get('/tag_sort/:sortBy', tag_sort.sortTag);
 app.post('/delete_entry', delete_entry.deleteEntry);
-app.post('/save', save.save);
+app.post('/save/:oldNew', save.save);
 app.get('/new_account', new_account.view);
 
 // Example route
