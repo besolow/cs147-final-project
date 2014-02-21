@@ -1,53 +1,57 @@
-var data = require('../data.json');
+var models = require('../models');
 
 exports.view = function(req, res) {
+    var username = req.session.username;
+    if(!username){
+        var messages = req.session.messages || [];
+        messages.push(['danger', 'Please login to continue']);
+        res.redirect('/login');
+        return;
+    }
 
     var queryString = req.query.queryString;
     var query = queryString.toLowerCase();
     var queryField = req.query.queryField;
     var resultsText = 'Search results for: ';
-    var results = [];
-    var entries = data['entries'];
+    console.log(queryField);
 
-
-    for (i in entries) {
-        //view by emotion
-        if(queryField == 'emotion') {
-            if(entries[i]['emotion'] == query) {
-                results.push(entries[i]);
-            }
-        //view by tag (currently case sensitive)
-        } else if(queryField == 'tag') {
-            if(entries[i]['tags'].indexOf(queryString) != -1) {
-                results.push(entries[i]);
-            }
-        //view by time
-        } else if(queryField == 'time') {
-            if(moment().format('MMMM')+" "+moment().format('YYYY') == queryString) {
-                results.push(entries[i]);
-            }
-        //search text
-        } else {
-            if(entries[i]['text'].toLowerCase().indexOf(query) != -1) {
-                results.push(entries[i]);
-            }
-        } 
-    }
-    if (results.length == 0) {
-        resultsText = 'No results for: ';
-    }else if(queryField == 'emotion') {
-        resultsText = 'Entries marked as: ';
-    }else if(queryField == 'tag') {
-        resultsText = 'Entries tagged as: ';
-    }else if(queryField == 'time'){
-        resultsText = "Entries from: ";
+    if(queryField == 'emotion') {
+        models.Entry
+        .find({"username":username,"emotion":queryString})
+        .exec(afterFind);
+    } else if(queryField == 'tag') {
+        models.Entry
+        .find({"username":username,"tags":queryString})
+        .exec(afterFind);
+    } else if(queryField == "time") {
+        models.Entry
+        .find({"username":username, "time":queryString})
+        .exec(afterFind);
+    } else {
+        var re = new RegExp('.*'+queryString+'.*', 'i');
+        models.Entry
+            .find()
+            .or([{text:{$regex: re}}, {tags:{$regex: re}}])
+            .exec(afterFind);
     }
 
+    function afterFind(err, results) {
+        console.log(results);
+        if(err){console.log(err); res.send(500);}
+        if (results.length == 0) {
+            resultsText = 'No results for: ';
+        }else if(queryField == 'emotion') {
+            resultsText = 'Entries marked as: ';
+        }else if(queryField == 'tag') {
+            resultsText = 'Entries tagged as: ';
+        }else if(queryField == 'time'){
+            resultsText = "Entries from: ";
+        }
 
-    res.render('search', {
-        'query': queryString,
-        'results': results,
-        'resultsText': resultsText
-    });
+        res.render('search', {
+            'query': queryString,
+            'results': results,
+            'resultsText': resultsText
+        });
+    }
 }
-

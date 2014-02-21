@@ -4,7 +4,8 @@
 <head>
     <title>Settings</title>    
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="/css/global.css" rel="stylesheet">
@@ -19,15 +20,17 @@
   </head>
 
   <body>
-    <div class="container padding-top">
     {{> toolbar}}
+    <div class="container padding-top-settings">
     <h3>Settings</h3>
-    <div onclick="elm = document.getElementById('about'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-      <h5>About</h5></div> 
+
+    <div class="settingDivs" id="aboutDiv">
+    <h5 class="settingDivs"><span class="glyphicon glyphicon-chevron-down"></span> About</h5>
     <div style="display:none;" id="about">JournalApp is your private journal that's with you wherever you go.</div>
+    </div>
     
-    <div onclick="elm = document.getElementById('support'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-      <h5>Submit support request</h5></div> 
+    <div class="settingDivs" id="supportDiv">
+      <h5 class="settingDivs"><span class="glyphicon glyphicon-chevron-down"></span> Submit support request</h5>
     <div style="display:none;" id="support">
     <form class="navbar-form navbar-left">
       <div class="form-group">
@@ -36,11 +39,11 @@
       </div>
      <button type="submit" class="btn btn-default">Submit</button>
     </form>
-  </div>
+  </div></div>
     
-    <div onclick="elm = document.getElementById('drop'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-      <h5>Change Password</h5></div> 
-    <div style="display:none;" id="drop">
+    <div class="settingDivs" id="passDiv">
+      <h5 class="settingDivs"><span class="glyphicon glyphicon-chevron-down"></span> Change Password</h5> 
+    <div style="display:none;" id="pass">
     <form class="navbar-form navbar-left">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Current Password">
@@ -48,17 +51,22 @@
       </div>
      <button type="submit" class="btn btn-default">Submit</button>
     </form>
-  </div>
+  </div></div>
 
-<div onclick="elm = document.getElementById('terms'); if(elm.style.display == 'none') elm.style.display = 'block'; else elm.style.display = 'none';">
-      <h5>Terms of Service</h5></div> 
+  <div id="termsDiv">
+      <h5 class="settingDivs"><span class="glyphicon glyphicon-chevron-down"></span> Terms of Service</h5>
     <div style="display:none;" id="terms">We keep all of your secrets.</div>
+    </div>
 
-    <input type="submit" id="logoutButton" class="btn btn-primary" value="Logout"/>
+    <form action="/logout" method="post">
+      <input type="submit" id="logoutButton" class="btn btn-primary" value="Logout"/>
+    </form>
+
     </div>
 
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/global.js"></script>
+    <script src="/js/settings.js"></script>
   </body>
   </html>

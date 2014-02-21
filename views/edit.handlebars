@@ -4,7 +4,8 @@
 <head>
   <title>Edit</title>    
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
   <link href="/css/global.css" rel="stylesheet">
@@ -20,11 +21,13 @@
 
     <body class="tmpfix">
       <div class="container">
-
+        <form class="entry-form" role="form" action="/save/old" method="post">
+        <input type="hidden" name="_id" value="{{entry._id}}"/>
         <div class="new-topbar text-center">
-          <a class="btn btn-default pull-left" href="/entry/{{entry.datetime}}">Cancel</a>
+          <a class="btn btn-default pull-left" href="/entry/{{entry._id}}">Cancel</a>
           <span class="new-topbar-text">Edit</span>
-          <a class="btn btn-primary pull-right" href="/entry/{{entry.datetime}}">Save</a>
+          <input type="submit" id="entrySubmitBtn" class="btn btn-primary pull-right" value="Save">
+
         </div>
         <div class="text-left" id="editDateTime">
         {{dateFormat entry.datetime format="MM/DD/YY HH:mm"}}
@@ -45,20 +48,20 @@
         <span class="label label-default">{{.}}</span>
         {{/each}}
         </div>
+        <input type="hidden" id="hiddenTags" name="hiddenTags" value="{{tagString}}"> 
 
         <select id="editingEmotion" name="emotion" class="form-control input-sm" placeholder="Select your emotion!">
         {{#each emotions}}
           <option value="{{val}}" {{#if bool}}selected{{/if}}>{{text}}</option>
         {{/each}}
         </select>
-
-        <form>
+      
           <div id="textEntryWrapper">
-          <textarea class="form-control" rows="15" id="entryText">{{entry.text}}</textarea>
+          <textarea class="form-control" rows="15" name="entryText">{{entry.text}}</textarea>
           </div>
         </form>
         <form action="/delete_entry" method="post">
-          <input type="hidden" name="datetime" value="{{entry.datetime}}"/>
+          <input type="hidden" name="_id" value="{{entry._id}}"/>
           <input type="submit" id="deleteButton" class="btn btn-primary center-block" value="Delete"/>
         </form>
       </div>

@@ -7,10 +7,12 @@ var express = require('express');
 var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars');
+var mongoose = require('mongoose');
 
 moment = require('./public/js/moment.min.js');
 
-var login = require('./routes/login')
+var login = require('./routes/login');
+var user = require('./routes/user');
 var project = require('./routes/project');
 var home = require('./routes/home');
 var tags = require('./routes/tags');
@@ -28,6 +30,13 @@ var new_account = require('./routes/new_account');
 
 // Example route
 // var user = require('./routes/user');
+
+// Connect to the Mongo database, whether locally or on Heroku
+// MAKE SURE TO CHANGE THE NAME FROM 'lab7' TO ... IN OTHER PROJECTS
+var local_database_name = 'jrnl';
+var local_database_uri  = 'mongodb://localhost/' + local_database_name
+var database_uri = process.env.MONGOLAB_URI || local_database_uri
+mongoose.connect(database_uri);
 
 var app = express();
 
@@ -56,6 +65,12 @@ app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function(req, res, next) {
+    var session = req.session;
+    var messages = session.messages || (session.messages = []);
+
+    next()
+});
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
@@ -66,16 +81,18 @@ app.get('/', login.view);
 app.get('/login', login.view);
 app.get('/home', home.view);
 app.get('/time', time.view);
-app.get('/tags', tags.view);
+app.get('/tags/:sortBy', tags.sortTag);
 app.get('/emotion', emotion.view);
-app.get('/entry/:datetime', entry.view);
+app.get('/entry/:_id', entry.view);
 app.get('/create_new', create_new.view);
-app.get('/edit/:datetime', edit.view);
+app.get('/edit/:_id', edit.view);
 app.get('/settings', settings.view);
 app.get('/search', search.view);
-app.get('/tag_sort/:sortBy', tag_sort.sortTag);
+app.post('/login_action', user.login);
+app.post('/logout', user.logout);
+//app.get('/tag_sort/:sortBy', tag_sort.sortTag);
 app.post('/delete_entry', delete_entry.deleteEntry);
-app.post('/save', save.save);
+app.post('/save/:oldNew', save.save);
 app.get('/new_account', new_account.view);
 
 // Example route
