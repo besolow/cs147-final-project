@@ -17,23 +17,30 @@ exports.view = function(req, res) {
 
     if(queryField == 'emotion') {
         models.Entry
-        .find({"username":username,"emotion":queryString})
-        .exec(afterFind);
+          .find({"username":username,"emotion":queryString})
+          .sort({"datetime":-1})
+          .exec(afterFind);
     } else if(queryField == 'tag') {
         models.Entry
-        .find({"username":username,"tags":queryString})
-        .exec(afterFind);
+          .find({"username":username,"tags":queryString})
+          .sort({"datetime":-1})
+          .exec(afterFind);
     } else if(queryField == "time") {
+        var startDate = moment(queryString, 'MMMM YYYY').startOf("month");
+        var endDate = startDate.clone().endOf("month");
         models.Entry
-        .find({"username":username, "time":queryString})
-        .exec(afterFind);
+            .find({"username": username, "datetime": {"$gte": startDate.toDate(), "$lt": endDate.toDate()}})
+            .sort({"datetime":-1})
+            .exec(afterFind);
     } else {
         var re = new RegExp('.*'+queryString+'.*', 'i');
         models.Entry
             .find()
             .or([{text:{$regex: re}}, {tags:{$regex: re}}])
+            .sort({"datetime":-1})
             .exec(afterFind);
     }
+
 
     function afterFind(err, results) {
         console.log(results);

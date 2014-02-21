@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="/css/global.css" rel="stylesheet">
@@ -24,13 +25,16 @@
     <div class="container padding-top-settings">
     <h3>Settings</h3>
 
-    <div class="settingDivs" id="aboutDiv">
-    <h5><span class="glyphicon glyphicon-chevron-down"></span> About</h5>
-    <div style="display:none;" id="about">Take your Jrnl with you wherever you go.
-    </div>
+    {{#if message}}
+      <div class="alert alert-{{message.[0]}} alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      {{message.[1]}}
+      </div>
+    {{/if}}
+    <h5 id="aboutDiv" class="settingDivs"><span class="glyphicon glyphicon-chevron-down"></span> About</h5>
+    <div style="display:none;" id="about">JournalApp is your private journal that's with you wherever you go.</div>
     
-    <div class="settingDivs" id="supportDiv">
-      <h5><span class="glyphicon glyphicon-chevron-down"></span> Submit support request</h5>
+      <h5 id="supportDiv" class="settingDivs"><span class="glyphicon glyphicon-chevron-down"></span> Submit support request</h5>
     <div style="display:none;" id="support">
     <form class="navbar-form navbar-left">
       <div class="form-group">
@@ -39,24 +43,23 @@
       </div>
      <button type="submit" class="btn btn-default">Submit</button>
     </form>
-  </div></div>
+  </div>
     
-    <div class="settingDivs" id="passDiv">
-      <h5><span class="glyphicon glyphicon-chevron-down"></span> Change Password</h5> 
+      <h5 id="passDiv" class="settingDivs"><span class="glyphicon glyphicon-chevron-down"></span> Change Password</h5> 
     <div style="display:none;" id="pass">
-    <form class="navbar-form navbar-left">
+    <form class="navbar-form navbar-left" action="/changePass" method="post">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Current Password">
-        <input type="text" class="form-control" placeholder="New Password">
+        <input type="password" class="form-control" name="oldpass" placeholder="Current Password"></div>
+        <div class="form-group">
+        <input type="password" class="form-control" name="newpass" placeholder="New Password">
       </div>
      <button type="submit" class="btn btn-default">Submit</button>
     </form>
-  </div></div>
+  </div>
 
-  <div class="settingDivs" id="termsDiv">
-      <h5><span class="glyphicon glyphicon-chevron-down"></span> Terms of Service</h5>
+      <h5 id="termsDiv"class="settingDivs"><span class="glyphicon glyphicon-chevron-down"></span> Terms of Service</h5>
     <div style="display:none;" id="terms">We keep all of your secrets.</div>
-    </div>
+
 
     <form action="/logout" method="post">
       <input type="submit" id="logoutButton" class="btn btn-primary" value="Logout"/>
