@@ -24,7 +24,9 @@ exports.view = function(req, res) {
     function entriesLoaded(err, entries) {
         if(err){console.log(err); res.send(500);}
         var emotions = [];
+        var noEntry = true;
         for (i in entries){
+            noEntry = false;
             if (entries[i].emotion!="default"){
                 var tmp = "I feel "+entries[i].emotion;
                 entries[i]["emotionText"] = tmp;
@@ -34,7 +36,8 @@ exports.view = function(req, res) {
         }
         res.render('home', {
             'entries':entries,
-            'message':message
+            'message':message,
+            'noEntry': noEntry
         });
     }
 };
