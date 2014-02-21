@@ -132,3 +132,7 @@ a.thumbnail:hover {
     font-size: 9pt;
     color: #D68189;
 }
+
+.text{
+    word-wrap:break-word
+}
