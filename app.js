@@ -94,6 +94,8 @@ app.post('/logout', user.logout);
 app.post('/delete_entry', delete_entry.deleteEntry);
 app.post('/save/:oldNew', save.save);
 app.get('/new_account', new_account.view);
+app.post('/createAccount', new_account.createAccount);
+
 
 // Example route
 // app.get('/users', user.list);

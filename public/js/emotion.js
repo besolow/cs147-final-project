@@ -46,7 +46,7 @@ console.log("adding things");
       .data(data)
       .enter()
           .append("text")
-          .attr("fill", "white")
+          .attr("fill", "black")
            .attr("x", 10)
            .attr("y", function(d,i) {return i * 50 + 24;})
            .text(function (d) {return d._id; })
