@@ -44,10 +44,6 @@ exports.save = function(req, res) {
                     res.send(500);
                 } else {
                     req.session.messages.push(['success', 'Entry Edited']);
-                    var emotionText = "";
-                    if (emotion!="default"){
-                        var emotionText = "I feel "+emotion;
-                    }
                     var url = "/entry/"+entryID;
                     res.redirect(url);
                 }
