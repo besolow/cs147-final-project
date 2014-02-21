@@ -137,6 +137,10 @@ a.thumbnail:hover {
     color: #D68189;
 }
 
+.text{
+    word-wrap:break-word;
+}
+
 .settingDivs{
     color:#2F4F4F;
 }
