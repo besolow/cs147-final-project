@@ -1,6 +1,5 @@
 
 var Mongoose = require('mongoose');
-var textSearch = require('mongoose-text-search');
 
 var UserSchema = new Mongoose.Schema({
     "username": String,
@@ -18,8 +17,6 @@ var EntrySchema = new Mongoose.Schema({
     "emotion": String
 });
 
-EntrySchema.plugin(textSearch);
-EntrySchema.index({text: 'text'});
 
 
 exports.Entry = Mongoose.model('Entry', EntrySchema);
