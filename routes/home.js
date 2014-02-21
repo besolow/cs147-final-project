@@ -17,6 +17,7 @@ exports.view = function(req, res) {
     }
     models.Entry
         .find({"username": username})
+        .sort( {"datetime" : -1})
         .exec(entriesLoaded);
 
 
