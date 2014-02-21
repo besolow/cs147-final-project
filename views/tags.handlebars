@@ -24,28 +24,12 @@
         {{> toolbar}}
         {{> tagbar}}
         <h3>Entries by tags</h3>
+        <h5>Sorted by {{sortBy}}</h5>
        <div class="list-group">
-        <a href="/search?queryString=coding&queryField=tag" class="list-group-item">coding
-          <span class="badge">2</span>
-        </a>
-        <a href="/search?queryString=love&queryField=tag" class="list-group-item">love
-          <span class="badge">2</span>
-        </a>
-        <a href="/search?queryString=CS147&queryField=tag" class="list-group-item">CS147
-          <span class="badge">1</span>
-        </a>
-         <a href="/search?queryString=relationship&queryField=tag" class="list-group-item">relationship
-          <span class="badge">1</span>
-        </a>
-         <a href="/search?queryString=coffeeftw&queryField=tag" class="list-group-item">coffeeftw
-          <span class="badge">1</span>
-        </a>
-        <a href="/search?queryString=hate&queryField=tag" class="list-group-item">hate
-          <span class="badge">1</span>
-        </a>
-         <a href="/search?queryString=delirium&queryField=tag" class="list-group-item">delirium
-          <span class="badge">1</span>
-        </a>
+       {{#each tags}}
+          <a href="/search?queryString={{_id}}&queryField=tag" class="list-group-item">{{_id}}
+          <span class="badge">{{count}}</span></a>
+       {{/each}}
       </div>
 
 
