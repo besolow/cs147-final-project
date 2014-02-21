@@ -9,6 +9,7 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
+
     $("#search-button").click(function(e) {
         e.preventDefault();
         $("#search-bar").fadeToggle(function() {
