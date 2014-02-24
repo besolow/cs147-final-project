@@ -1,4 +1,7 @@
-lab4
+JRNL
 ====
 
-Lab 4: Programming with Javascript
+Team members:
+Makiko Fujimoto
+Neli Jasuja
+Brett Solow
