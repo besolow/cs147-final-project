@@ -4,28 +4,39 @@
 $(document).ready(function() {
     initializePage();
 })
-
+var tags = [];
 /*
  * Function that is called when the document is ready.
  */
 function initializePage() {
+    var $searchBar = $("#search-bar");
+    var $sortBar = $("#sort-bar");
 
     $("#search-button").click(function(e) {
         e.preventDefault();
-        $("#search-bar").fadeToggle(function() {
-            $("#sort-bar").toggle();
-        });
+        //search is showing, so hide it
+        if($searchBar.is(":visible")) {
+            $sortBar.fadeIn(function() {
+                $searchBar.hide();
+            });
+        //search bar hidden so show it
+        } else {
+            $searchBar.show();
+            $sortBar.fadeOut();
+            $("#search-input").focus();
+        }
     });
 
     
     $("#addtag").click(function(e) { 
         e.preventDefault();
         var newtag = $("#addtag-text").val();
-        if (newtag!=""){
+        if (newtag!="" && $.inArray(newtag, tags)==-1){
+            tags.push(newtag);
             $(".tags").append('<span class="label label-default">'+newtag+'</span> ');
             $("#hiddenTags").val($("#hiddenTags").val()+"|"+newtag);
-            $("#addtag-text").val("");
         }
+        $("#addtag-text").val("");
     });
     
     //make tags clickable to view by tag
@@ -49,11 +60,10 @@ function initializePage() {
         //$.get("/tag_sort/abc", displaySortResult);
     });
 
-    $("#addtag-text").keyup(function(e) {
-        alert("PUSHED "+e.which);
+    $("#addtag-text").keydown(function(e) {
         if(e.which ===13) {
             $("#addtag").click();
-            return false;
+            e.preventDefault();
         }
     });
 

@@ -35,11 +35,6 @@ exports.view = function(req, res) {
     } else {
         var re = new RegExp('.*'+queryString+'.*', 'i');
         models.Entry
-            .find()
-            .or([{text:{$regex: re}}, {tags:{$regex: re}}])
-            .sort({"datetime":-1})
-            .exec(afterFind);
-        models.Entry
             .find({"username":username, $or:[{text:{$regex: re}}, {tags:{$regex: re}}]})
             .sort({"datetime":-1})
             .exec(afterFind);
