@@ -95,6 +95,8 @@ app.post('/changePass', user.changePass);
 app.post('/delete_entry', delete_entry.deleteEntry);
 app.post('/save/:oldNew', save.save);
 app.get('/new_account', new_account.view);
+app.get('/support', settings.support);
+app.post('/createAccount', new_account.createAccount);
 
 // Example route
 // app.get('/users', user.list);

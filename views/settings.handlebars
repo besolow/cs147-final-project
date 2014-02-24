@@ -5,8 +5,7 @@
     <title>Settings</title>    
     <meta charset="utf-8">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="/css/global.css" rel="stylesheet">
@@ -24,6 +23,7 @@
     {{> toolbar}}
     <div class="container padding-top-settings">
     <h3>Settings</h3>
+
     {{#if message}}
       <div class="alert alert-{{message.[0]}} alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -35,7 +35,7 @@
     
       <h5 id="supportDiv" class="settingDivs"><span class="glyphicon glyphicon-chevron-down"></span> Submit support request</h5>
     <div style="display:none;" id="support">
-    <form class="navbar-form navbar-left">
+    <form class="navbar-form navbar-left" action="/support">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Subject">
         <textarea class="form-control" rows="10" id="entryText" placeholder="Problem description"></textarea>

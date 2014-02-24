@@ -7,6 +7,12 @@ exports.view = function(req, res) {
         messages.push(['danger', 'Please login to continue']);
         res.redirect('/login');
     }
+
+    var message = false;
+    if(req.session.messages){
+        message = req.session.messages.pop();
+    }
+
     var _id = req.params._id;
     console.log("id "+_id);
     models.Entry
@@ -28,7 +34,8 @@ exports.view = function(req, res) {
                 }
                 res.render('entry', {
                     'entry': entry,
-                    'emotionText': emotionText
+                    'emotionText': emotionText,
+                    'message':message
                 });
             }
         });

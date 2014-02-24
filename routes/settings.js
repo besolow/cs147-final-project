@@ -7,5 +7,9 @@ exports.view = function(req, res) {
     res.render('settings', {
         'message':message
     });
+}
 
+exports.support = function(req, res){
+    req.session.messages.push(['success','Support request submitted!']);
+    res.redirect("/settings");
 }
