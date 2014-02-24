@@ -21,7 +21,7 @@
 
   <body>
     <div class="container">
-        <h3>Create your account</h3><br>
+        <h3>Create new account</h3><br>
         {{#if message}}
           <div class="alert alert-{{message.[0]}} alert-dismissable">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -31,19 +31,19 @@
 
         <form class="entry-form" role="form" action="/createAccount" method="post">
             <div class="form-group">
-              <input type="username" class="form-control" name="username" placeholder="Enter New Username"/>
+              <input type="username" class="form-control" name="username" placeholder="Your New Username"/>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" name="userPassword" placeholder="Enter New Password" />
+              <input type="password" class="form-control" name="userPassword" placeholder="Your Password" />
             </div>
             <div class="form-group">
               <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password"/>
             </div>
             <div class="form-group">
-              <input type="checkbox" name="terms" value="check"> I agree to the  <a href="#" id="terms" data-container="body" data-toggle="popover" data-placement="top" data-content="We know all of your secrets." visibility="hidden">terms and services</a>.
+              <input type="checkbox" name="terms" value="check"> I agree to the  <a href="#" id="terms" data-container="body" data-toggle="popover" data-placement="top" data-content="We know all of your secrets.">terms and services</a>.
             </div>
 
-            <input type="submit" class="btn btn-primary" value="Create"/>
+            <input type="submit" class="btn btn-primary" value="Sign Up!"/>
 
         </form>
     </div>
