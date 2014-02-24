@@ -39,6 +39,10 @@ exports.view = function(req, res) {
             .or([{text:{$regex: re}}, {tags:{$regex: re}}])
             .sort({"datetime":-1})
             .exec(afterFind);
+        models.Entry
+            .find({"username":username, $or:[{text:{$regex: re}}, {tags:{$regex: re}}]})
+            .sort({"datetime":-1})
+            .exec(afterFind);
     }
 
 

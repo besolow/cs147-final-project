@@ -24,6 +24,13 @@ var h = 400;
 //     .range([0, w]);
 function addGraph(emotions) {
   var data = emotions.slice();
+  for(var i = 0; i < data.length; i++) {
+    if (data[i]['_id']=='default') {
+      data.splice(i, 1);
+      break;
+    }
+  }
+  console.log(data);
   console.log("adding svg");
   var canvas = d3.select(".container")
                .append("svg")

@@ -49,6 +49,16 @@ function initializePage() {
         //$.get("/tag_sort/abc", displaySortResult);
     });
 
+    $("#addtag-text").keyup(function(e) {
+        alert("PUSHED "+e.which);
+        if(e.which ===13) {
+            $("#addtag").click();
+            return false;
+        }
+    });
+
+
+
    
 
 }
