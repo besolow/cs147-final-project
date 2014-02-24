@@ -28,19 +28,22 @@
           {{message.[1]}}
           </div>
         {{/if}}
+
         <form class="entry-form" role="form" action="/createAccount" method="post">
-            <input type="firstName" class="form-control" name="userFirstName" placeholder="First Name"/>
-            <input type="lastName" class="form-control" name="userLastName" placeholder="Last Name"/>
-            <input type="username" class="form-control" name="username" placeholder="Enter Username"/>
-            <input type="password" class="form-control" name="userPassword" placeholder="Enter Password" />
-            <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password"/>
-            <br>
-            <input type="checkbox" name="terms" value="check"> I agree to the terms and services
-            <br>
+            <div class="form-group">
+              <input type="username" class="form-control" name="username" placeholder="Enter New Username"/>
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" name="userPassword" placeholder="Enter New Password" />
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password"/>
+            </div>
+            <div class="form-group">
+              <input type="checkbox" name="terms" value="check"> I agree to the  <a href="#" id="terms" data-container="body" data-toggle="popover" data-placement="top" data-content="We know all of your secrets." visibility="hidden">terms and services</a>.
+            </div>
 
             <input type="submit" class="btn btn-primary" value="Create"/>
-
-            <!-- <button type="submit" class="btn btn-default">Login</button> -->
 
         </form>
     </div>

@@ -18,11 +18,19 @@ exports.createAccount = function(req, res) {
         req.session.messages = [];
     } 
 
-    if (req.body.terms!="check"){
-    	req.session.messages.push(['danger','Please agree to the terms and services!']);
-		res.redirect('/new_account');
+    if (req.body.username===""){
+        req.session.messages.push(['danger','Please enter a valid username.']);
+        res.redirect('/new_account');
+    }else if (req.body.userPassword===""){
+        req.session.messages.push(['danger','Please enter a valid password.']);
+        res.redirect('/new_account');
+    }else if (req.body.userPassword!=req.body.confirmPassword){
+        req.session.messages.push(['danger',"Passwords don't match. Please try again."]);
+        res.redirect('/new_account');
+    } else if (req.body.terms!="check"){
+        req.session.messages.push(['danger','Please agree to the terms and services!']);
+        res.redirect('/new_account');
     }else{
-
 	    models.User
 			.find({"username": req.body.username})
 			.exec(checkUsername);
