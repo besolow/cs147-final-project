@@ -5,14 +5,11 @@ seafoam: #C6E5D9            45B3AF dark seafoam
 pinkish: #D68189       EB3F00 orange 
 */
 
-<<<<<<< HEAD
-
-=======
 h1, h3, h4, h5 {
     /*font-family: Helvetica, sans-serif;*/
    font-family: Georgia, serif; 
 }
->>>>>>> 6ab5b5593c2b123abba5f5c2c578fa762cc23afc
+
 .lower-nav {
     top: 45px;
     text-align: center;
@@ -38,10 +35,6 @@ body.tmpfix{
 
 .lower-body {
     padding-top: 100px;
-}
-
-.lower-body {
-    padding-top: 90;
 }
 
 .thumbnail {
@@ -112,7 +105,7 @@ a.thumbnail:hover {
 }
 
 .padding-top {
-    padding-top: 110px;
+    padding-top: 100px;
 }
 
 .padding-top-settings{
@@ -129,7 +122,12 @@ a.thumbnail:hover {
 
 .activeSort{
     color: #082C36;
-    font-size: 24px;
+    font-size: 18pt;
+}
+
+.inactiveSort{
+    color: #fff;
+    font-size:16pt;
 }
 
 #textEntryWrapper{
