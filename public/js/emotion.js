@@ -47,7 +47,7 @@ console.log("adding things");
        .attr("y", function(d,i) {return i * 50;})
        .attr("width", function(d) {return d.count * 30;})
        .attr("height", 48)
-       .attr("fill", "#E94E77");
+       .attr("fill", "white");
 
   canvas.selectAll("text")
       .data(data)

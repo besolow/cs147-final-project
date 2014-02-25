@@ -1,25 +1,31 @@
 /*
 from: http://www.colourlovers.com/palette/867235/LoverinJapan
-Background beige: #F4EAD5
-seafoam: #C6E5D9
-pinkish: #D68189
+Background beige: #F4EAD5       E0F4F6 light seafoam
+seafoam: #C6E5D9            45B3AF dark seafoam
+pinkish: #D68189       EB3F00 orange 
 */
 
+h3, h4, h5 {
+    /*font-family: Helvetica, sans-serif;*/
+   font-family: Georgia, serif; 
+}
 .lower-nav {
     top: 45px;
     text-align: center;
-    background: #C6E5D9;
+    background: #45B3AF;
     line-height: 50px;
     z-index: 1020;
     padding: 0 15px;
 }
 
 .upper-nav {
-    background: #D68189;
+    background: #196966;
 }
 
 body {
-    background: #F4EAD5;
+    background: #C6E5D9;
+    /*font-family: Helvetica, sans-serif;*/
+    font-family: Georgia, serif;
 }
 
 body.tmpfix{
@@ -60,14 +66,15 @@ a.thumbnail:hover {
     box-shadow: none;
     outline: none;
     background: none;
-    color: #333333;
+    color: #E5E2E2;
+    /*color: #333333;*/
 
 }
 
 .btn-primary{
     background: none;
-    background: #E94E77;
-    border-color: #E94E77;
+    background: #196966;
+    border-color: #196966;
 }
 
 .btn-primary:hover,
@@ -76,8 +83,8 @@ a.thumbnail:hover {
 .btn-primary.active,
 .open {
     background: none;
-    background: #990022;
-    border-color: #990022;
+    background: #45B3AF;
+    border-color: #45B3AF;
 }
 
 #search-bar{
@@ -119,7 +126,7 @@ a.thumbnail:hover {
 }
 
 .activeSort{
-    color: #D68189;
+    color: #082C36;
     font-size: 24px;
 }
 
@@ -134,7 +141,7 @@ a.thumbnail:hover {
 
 .emotion{
     font-size: 9pt;
-    color: #D68189;
+    color: #45B3AF;
 }
 
 .text{
@@ -144,3 +151,8 @@ a.thumbnail:hover {
 .settingDivs{
     color:#2F4F4F;
 }
+
+#sortColor{
+    color:#082C36;
+}
+
