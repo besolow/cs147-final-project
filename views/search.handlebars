@@ -9,6 +9,8 @@
   <link href="/css/bootstrap.min.css" rel="stylesheet">
   <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
   <link href="/css/global.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
   <!-- this is a comment in HTML -->
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -31,10 +33,13 @@
           <div class="col-sm-6">
             <a href="entry/{{_id}}" class="thumbnail preview">
               <p class="dateAndTime">{{dateFormat datetime format="MM/DD/YY HH:mm"}}</p>
-              <div id="tags">
+              <div class="tags">
               {{#each tags}}
                 <span class="label label-default tag-link">{{.}}</span>
               {{/each}}
+              </div>
+              <div class="emotion">
+              {{emotionText}}
               </div>
               <p>{{text}}
               </p>

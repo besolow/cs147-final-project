@@ -5,6 +5,7 @@ seafoam: #C6E5D9
 pinkish: #D68189
 */
 
+
 .lower-nav {
     top: 45px;
     text-align: center;
@@ -39,7 +40,7 @@ body.tmpfix{
 }
 
 .thumbnail.preview {
-    max-height: 100px;
+    max-height: 120px;
 }
 
 a.thumbnail {
@@ -98,7 +99,7 @@ a.thumbnail:hover {
 }
 
 .tags{
-    padding:5px 0px 5px 0px;
+    padding:0px 0px 5px 0px;
     word-wrap: break-word;
 }
 
@@ -143,4 +144,8 @@ a.thumbnail:hover {
 
 .settingDivs{
     color:#2F4F4F;
+}
+
+.fa-smile-o{
+    font-size: 18pt;
 }
