@@ -5,7 +5,7 @@ seafoam: #C6E5D9            45B3AF dark seafoam
 pinkish: #D68189       EB3F00 orange 
 */
 
-h3, h4, h5 {
+h1, h3, h4, h5 {
     /*font-family: Helvetica, sans-serif;*/
    font-family: Georgia, serif; 
 }
@@ -67,8 +67,6 @@ a.thumbnail:hover {
     outline: none;
     background: none;
     color: #E5E2E2;
-    /*color: #333333;*/
-
 }
 
 .btn-primary{

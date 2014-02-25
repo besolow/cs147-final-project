@@ -57,12 +57,12 @@
         </select>
       
           <div id="textEntryWrapper">
-          <textarea class="form-control" rows="15" name="entryText">{{entry.text}}</textarea>
+          <textarea class="form-control" rows="13" name="entryText">{{entry.text}}</textarea>
           </div>
         </form>
         <form action="/delete_entry" method="post">
           <input type="hidden" name="_id" value="{{entry._id}}"/>
-          <input type="submit" id="deleteButton" class="btn btn-primary center-block" value="Delete"/>
+          <input type="submit" id="deleteButton" class="btn btn-primary btn-block" value="Delete"/>
         </form>
       </div>
 
