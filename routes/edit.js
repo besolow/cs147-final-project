@@ -27,8 +27,8 @@ exports.view = function(req, res) {
                 res.send(500);
             } else {
                 var emotionArray = [];
-                var allEmotions = ["default", "happy", "sad", "excited", "angry", "loved", "meh", "peaceful", "down"];
-                var allText = ["How are you feeling?", "Happy", "Sad", "Excited", "Angry", "Loved", "Meh", "Peaceful", "Down"];
+                var allEmotions = ["default", "happy", "sad", "excited", "angry", "loved", "meh", "peaceful", "down", "proud", "stressed"];
+                var allText = ["How are you feeling?", "Happy", "Sad", "Excited", "Angry", "Loved", "Meh", "Peaceful", "Down", "Proud", "Stressed"];
                 for (var i=0; i<allEmotions.length; i++){
                     var emotion = {};
                     emotion['val'] = allEmotions[i];
