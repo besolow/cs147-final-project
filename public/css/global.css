@@ -154,3 +154,6 @@ a.thumbnail:hover {
     color:#082C36;
 }
 
+.dropdown{
+    position: relative;
+}
