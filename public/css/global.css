@@ -9,6 +9,7 @@ h1, h3, h4, h5 {
     /*font-family: Helvetica, sans-serif;*/
    /*font-family: Georgia, serif; */
 }
+
 .lower-nav {
     top: 45px;
     text-align: center;
@@ -36,16 +37,12 @@ body.tmpfix{
     padding-top: 100px;
 }
 
-.lower-body {
-    padding-top: 90;
-}
-
 .thumbnail {
     max-height: 250px;
 }
 
 .thumbnail.preview {
-    max-height: 100px;
+    max-height: 120px;
 }
 
 a.thumbnail {
@@ -109,12 +106,12 @@ a.thumbnail:hover {
 }
 
 .tags{
-    padding:5px 0px 5px 0px;
+    padding:0px 0px 5px 0px;
     word-wrap: break-word;
 }
 
 .padding-top {
-    padding-top: 110px;
+    padding-top: 100px;
 }
 
 .padding-top-settings{
@@ -131,7 +128,12 @@ a.thumbnail:hover {
 
 .activeSort{
     color: #082C36;
-    font-size: 24px;
+    font-size: 18pt;
+}
+
+.inactiveSort{
+    color: #fff;
+    font-size:16pt;
 }
 
 #textEntryWrapper{
@@ -156,10 +158,16 @@ a.thumbnail:hover {
     color:#2F4F4F;
 }
 
+.fa-smile-o{
+    font-size: 18pt;
+}
+
 #sortColor{
     color:#082C36;
 }
 
+
 .settingsDropdown{
     min-width: 70px;
 }
+

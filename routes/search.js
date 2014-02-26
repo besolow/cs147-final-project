@@ -13,7 +13,6 @@ exports.view = function(req, res) {
     var query = queryString.toLowerCase();
     var queryField = req.query.queryField;
     var resultsText = 'Search results for: ';
-    console.log(queryField);
 
     if(queryField == 'emotion') {
         models.Entry
@@ -35,14 +34,13 @@ exports.view = function(req, res) {
     } else {
         var re = new RegExp('.*'+queryString+'.*', 'i');
         models.Entry
-            .find({"username":username, $or:[{text:{$regex: re}}, {tags:{$regex: re}}]})
+            .find({"username":username, $or:[{text:{$regex: re}}, {tags:{$regex: re}}, {emotion:{$regex: re}}]})
             .sort({"datetime":-1})
             .exec(afterFind);
     }
 
 
     function afterFind(err, results) {
-        console.log(results);
         if(err){console.log(err); res.send(500);}
         if (results.length == 0) {
             resultsText = 'No results for: ';
@@ -52,6 +50,15 @@ exports.view = function(req, res) {
             resultsText = 'Entries tagged as: ';
         }else if(queryField == 'time'){
             resultsText = "Entries from: ";
+        }
+
+        for (i in results){
+            if (results[i].emotion!="default"){
+                var tmp = "I feel "+results[i].emotion;
+                results[i]["emotionText"] = tmp;
+            }else{
+                results[i]["emotionText"] = "";
+            }
         }
 
         res.render('search', {
