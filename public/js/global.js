@@ -61,7 +61,7 @@ function initializePage() {
     });
 
     $("#addtag-text").keydown(function(e) {
-        if(e.which ===13) {
+        if(e.which === 13) {
             $("#addtag").click();
             e.preventDefault();
         }
