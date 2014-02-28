@@ -4,7 +4,6 @@
 $(document).ready(function() {
     initializePage();
 })
-var tags = [];
 /*
  * Function that is called when the document is ready.
  */
@@ -28,16 +27,7 @@ function initializePage() {
     });
 
     
-    $("#addtag").click(function(e) { 
-        e.preventDefault();
-        var newtag = $("#addtag-text").val();
-        if (newtag!="" && $.inArray(newtag, tags)==-1){
-            tags.push(newtag);
-            $(".tags").append('<span class="label label-default">'+newtag+'</span> ');
-            $("#hiddenTags").val($("#hiddenTags").val()+"|"+newtag);
-        }
-        $("#addtag-text").val("");
-    });
+    
     
     //make tags clickable to view by tag
     $(".tag-link").click(function(e) {
@@ -60,12 +50,6 @@ function initializePage() {
         //$.get("/tag_sort/abc", displaySortResult);
     });
 
-    $("#addtag-text").keydown(function(e) {
-        if(e.which === 13) {
-            $("#addtag").click();
-            e.preventDefault();
-        }
-    });
 
     $("#terms").popover('hide');
 
