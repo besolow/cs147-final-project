@@ -1,3 +1,5 @@
+
+
 exports.view = function(req, res) {
     var username = req.session.username;
     if(!username){
@@ -6,5 +8,32 @@ exports.view = function(req, res) {
         res.redirect('/login');
         return;
     }
-    res.render('create_new');
+
+    var message = false;
+    var date = new Date();
+    var hours = date.getHours();
+    date.setHours(hours-8);
+    if(req.session.messages){
+        message = req.session.messages.pop();
+    }
+    res.render('create_new', {
+        'alt': false,
+        'message': message,
+        'date': date
+    });
+}
+
+exports.emoticonSideView = function(req, res) {
+    var message = false;
+    var date = new Date();
+    var hours = date.getHours();
+    date.setHours(hours-8);
+    if(req.session.messages){
+        message = req.session.messages.pop();
+    }
+    res.render('create_new', {
+        'alt': true,
+        'message': message,
+        'date': date
+    });
 }

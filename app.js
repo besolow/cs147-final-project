@@ -102,6 +102,8 @@ app.get('/new_account', new_account.view);
 app.get('/support', settings.support);
 app.post('/createAccount', new_account.createAccount);
 
+app.get('/create_new_alt', create_new.emoticonSideView);
+
 // Example route
 // app.get('/users', user.list);
 

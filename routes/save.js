@@ -5,7 +5,6 @@ exports.save = function(req, res) {
     var hours = date.getHours();
     //temp hack for time zone issues:
     date.setHours(hours-8);
-    console.log(date);
     var username = req.session.username;
     var oldNew = req.params.oldNew;
     if(!username){
@@ -20,6 +19,12 @@ exports.save = function(req, res) {
     allTags.splice(0,1);
 
     if (oldNew==="new"){
+        if (req.body.entryText===""){
+        var messages = req.session.messages || [];
+            messages.push(['danger', 'Please type something into your new entry!']);
+            res.redirect('/create_new');
+            return;
+        }   
         var newEntry = new models.Entry({
             "username": username,
             "datetime": date,
@@ -35,6 +40,13 @@ exports.save = function(req, res) {
         });   
     }else if (oldNew==="old"){
         var entryID = req.body._id;
+        if (req.body.entryText===""){
+            var messages = req.session.messages || [];
+            messages.push(['danger', 'Please type something into your entry!']);
+            var url = '/edit/'+entryID;
+            res.redirect(url);
+            return;
+        }
         models.Entry
             .update( 
                 {_id: entryID},

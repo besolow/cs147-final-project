@@ -2,17 +2,22 @@
   <div class="navbar-header pull-left">
     <a href="/home" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-home"/></a>
   </div>
-  <div class="navbar-header pull-right">
+  <div class="settingsButton navbar-header pull-right">
     <a href="/create_new" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-plus"/></a>
     <a href="/#" class="btn btn-default btn-lg" id="search-button"><span class="glyphicon glyphicon-search"/></a>
-    <a href="/settings" class="btn btn-default btn-lg" id="settings-button"><span class="glyphicon glyphicon-cog"/></a>
+    <a href="/#" class="btn btn-default btn-lg" id="settings-button" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"/></a>
+      <ul class="settingsDropdown dropdown-menu" role="menu" aria-labelledby="settingsDropdown">
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">Logout</a></li>
+        <li role="presentation"><a role="menuitem" tabindex="-1" href="/settings">More</a></li>
+      </ul>
   </div>
-</div>
-<div class="navbar navbar-fixed-top lower-nav" id="search-bar">
-  <div class="navbar-header">
-    <form class="search-form" action="/search" method="get">
-      <input type="text" class="form-control" id="search-input" name ="queryString" placeholder="Search">
-      <button class="btn btn-default">Submit</button>
+
+  <div class="navbar navbar-fixed-top lower-nav" id="search-bar">
+    <div class="navbar-header">
+      <form class="search-form" action="/search" method="get">
+       <input type="text" class="form-control" id="search-input" name ="queryString" placeholder="Search">
+       <button class="btn btn-default">Submit</button>
+      </form>
     </div>
-  </form>
+  </div>
 </div>

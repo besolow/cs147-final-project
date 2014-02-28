@@ -9,6 +9,11 @@ exports.view = function(req, res) {
     }
     var _id = req.params._id;
 
+    var message = false;
+    if(req.session.messages){
+        message = req.session.messages.pop();
+    }
+
     var entry = null;
     models.Entry
         .find({
@@ -43,7 +48,8 @@ exports.view = function(req, res) {
                 res.render('edit', {
                     'entry': entry,
                     'emotions': emotionArray,
-                    'tagString': tagString
+                    'tagString': tagString,
+                    'message': message
                 });
             }
         });
