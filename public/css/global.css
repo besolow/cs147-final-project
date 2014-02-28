@@ -167,7 +167,7 @@ a.thumbnail:hover {
 }
 
 .emotionSelect{
-    width:94%;
+    width:97%;
     margin:0px 5px;
     font-size:10pt;
 }
@@ -186,5 +186,10 @@ a.thumbnail:hover {
 
 .settingsDropdown{
     min-width: 70px;
+}
+
+#imfeeling{
+    font-style: italic;
+    margin:0px;
 }
 
