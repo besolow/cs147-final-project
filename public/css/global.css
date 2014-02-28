@@ -172,6 +172,11 @@ a.thumbnail:hover {
     font-size:10pt;
 }
 
+#imfeeling{
+    font-style: italic;
+    margin:0px;
+}
+
 .emoji{
     height:20px;
 }
@@ -188,8 +193,28 @@ a.thumbnail:hover {
     min-width: 70px;
 }
 
-#imfeeling{
-    font-style: italic;
-    margin:0px;
+#emotionDropBox{
+    background-color: #fff;
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 3pt;
 }
 
+#emotionDrop{
+    display: block;
+}
+
+.emotionDropOptions{
+    width:100%;
+    min-width: none;
+}
+
+.emotions{
+    padding:10px;
+}
+
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+}
