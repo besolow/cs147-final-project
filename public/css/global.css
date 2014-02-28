@@ -7,16 +7,16 @@ pinkish: #D68189       EB3F00 orange
 
 h1, h3, h4, h5 {
     /*font-family: Helvetica, sans-serif;*/
-   font-family: Georgia, serif; 
+   /*font-family: Georgia, serif; */
 }
 
 .lower-nav {
     top: 45px;
-    text-align: center;
+    text-align: left;
     background: #45B3AF;
     line-height: 50px;
     z-index: 1020;
-    padding: 0 15px;
+    padding: 0 5px;
 }
 
 .upper-nav {
@@ -26,7 +26,7 @@ h1, h3, h4, h5 {
 body {
     background: #C6E5D9;
     /*font-family: Helvetica, sans-serif;*/
-    font-family: Georgia, serif;
+    /*font-family: Georgia, serif;*/
 }
 
 body.tmpfix{
@@ -80,6 +80,12 @@ a.thumbnail:hover {
     background: none;
     background: #45B3AF;
     border-color: #45B3AF;
+}
+
+.settingsButton{
+    background: none;
+    background: none;
+    border-color: none;
 }
 
 #search-bar{
@@ -181,5 +187,9 @@ select.emotionSelect option {
 
 .createDate{
     margin:0px;
+}
+
+.settingsDropdown{
+    min-width: 70px;
 }
 
