@@ -131,7 +131,7 @@ a.thumbnail:hover {
 }
 
 #textEntryWrapper{
-    padding:5px 0px;
+    padding:0px 0px;
 }
 
 #editDateTime{
@@ -159,3 +159,27 @@ a.thumbnail:hover {
 #sortColor{
     color:#082C36;
 }
+
+select.emotionSelect option {
+    background-repeat:no-repeat;
+    background-position:bottom left;
+    padding-left:30px;
+}
+
+.emotionSelect{
+    width:95%;
+    margin:0px 10px;
+}
+
+.emoji{
+    height:20px;
+}
+
+.tagSelect{
+    padding-top: 5px;
+}
+
+.createDate{
+    margin:0px;
+}
+

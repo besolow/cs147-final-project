@@ -69,8 +69,4 @@ function initializePage() {
 
     $("#terms").popover('hide');
 
-
-
-   
-
 }

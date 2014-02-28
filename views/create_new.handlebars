@@ -10,6 +10,7 @@
   <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
   <link href="/css/global.css" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link rel="stylesheet" href="http://i.icomoon.io/public/temp/11e489eca7/UntitledProject1/style.css">
 
   <!-- this is a comment in HTML -->
 
@@ -26,11 +27,56 @@
         <form class="entry-form" role="form" action="/save/new" method="post">
         <div class="new-topbar text-center">
           <a class="btn btn-default pull-left" href="/home">Cancel</a>
-          <span class="new-topbar-text">New Entry</span>
-          <input type="submit" id="entrySubmitBtn" class="btn btn-primary pull-right" value="Save">
+
+          <input type="submit" id="entrySubmitBtn" class="btn btn-primary pull-right" data-container="body" data-toggle="popover" data-placement="left" data-content="Please enter something in your entry!" value="Save">
         </div>
 
-        <div class="input-group input-group-sm">
+        {{#if message}}
+          <div class="alert alert-{{message.[0]}} alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          {{message.[1]}}
+          </div>
+        {{/if}}
+        <br>
+        {{#if verB}}
+          I'm feeling...
+          <table class="emotionSelect">
+            <tbody>
+            <tr>
+              <td class="emotions" id="happy"><img class="emoji" src="emotions/smiley.png"/> Happy</td>
+              <td class="emotions" id="sad"><img class="emoji" src="emotions/sad.png"/> Sad</td>
+              <td class="emotions" id="excited"><img class="emoji" src="emotions/happy.png"/> Excited</td>
+              <td class="emotions" id="angry"><img class="emoji" src="emotions/angry.png"/> Angry</td>
+            </tr>
+            <tr>
+              <td class="emotions" id="loved"><img class="emoji" src="emotions/wink.png"/> Loved</td>
+              <td class="emotions" id="stressed"><img class="emoji" src="emotions/wondering.png"/> Stress</td>
+              <td class="emotions" id="proud"><img class="emoji" src="emotions/grin.png"/> Proud</td>
+              <td class="emotions" id="down"><img class="emoji" src="emotions/neutral.png"/> Down</td>
+            </tr>
+            </tbody>
+          </table> <input type="hidden" id="emotionField" name="emotion" value="default">
+        {{else}}
+          {{#if verA}}
+
+          {{else}}
+            <select name="emotion" class="form-control input-sm" placeholder="Select your emotion">
+              <option value="default">How are you feeling?</option>
+              <option value="happy">Happy</option>
+              <option value="sad">Sad</option>
+              <option value="excited">Excited</option>
+              <option value="angry">Angry</option>
+              <option value="loved">Loved</option>
+              <option value="meh">Meh</option>
+              <option value="peaceful">Peaceful</option>
+              <option value="down">Down</option>
+              <option value="proud">Proud</option>
+              <option value="stressed">Stressed</option>
+            </select>
+          {{/if}}
+        {{/if}}
+
+        <div class="input-group input-group-sm tagSelect">
           <span class="input-group-addon">
             <span class="glyphicon glyphicon-tag"></span>
           </span>
@@ -40,32 +86,18 @@
           </span>
         </div>
 
-        <div class="tags">
-        </div>
+        <div class="tags"></div>
         <input type="hidden" id="hiddenTags" name="hiddenTags" value="">
-
-        <select name="emotion" class="form-control input-sm" placeholder="Select your emotion">
-          <option value="default">How are you feeling?</option>
-          <option value="happy">Happy</option>
-          <option value="sad">Sad</option>
-          <option value="excited">Excited</option>
-          <option value="angry">Angry</option>
-          <option value="loved">Loved</option>
-          <option value="meh">Meh</option>
-          <option value="peaceful">Peaceful</option>
-          <option value="down">Down</option>
-          <option value="proud">Proud</option>
-          <option value="stressed">Stressed</option>
-        </select>
-          
-          <div id="textEntryWrapper">
+        <p class="text-right createDate">{{dateFormat date format="MM/DD/YY"}}</p>
+        <div id="textEntryWrapper">
           <textarea class="form-control" rows="19" id="entryText" placeholder="How was your day?" name="entryText"></textarea>
-          </div>
-          </form>
-      </div>
+        </div>
+      </form>
+    </div>
 
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/global.js"></script>
+    <script src="/js/create_new.js"></script>
   </body>
   </html>
