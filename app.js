@@ -93,7 +93,7 @@ app.get('/edit/:_id', edit.view);
 app.get('/settings', settings.view);
 app.get('/search', search.view);
 app.post('/login_action', user.login);
-app.post('/logout', user.logout);
+app.get('/logout', user.logout);
 app.post('/changePass', user.changePass);
 //app.get('/tag_sort/:sortBy', tag_sort.sortTag);
 app.post('/delete_entry', delete_entry.deleteEntry);

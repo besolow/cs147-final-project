@@ -47,5 +47,10 @@ $(document).ready(function() {
       source: tagSuggestions.ttAdapter()
     });
 
+    $('#entrySubmitBtn').click(function(e) {
+        if($("#entryText").val()!="") {
+            e.stopImmediatePropagation();
+        }
+    })
  
 })
