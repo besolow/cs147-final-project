@@ -38,7 +38,8 @@
           </div>
         {{/if}}
         <br>
-        {{#if verB}}
+
+        {{#if alt}}
           I'm feeling...
           <table class="emotionSelect">
             <tbody>
@@ -48,6 +49,9 @@
               <td class="emotions" id="excited"><img class="emoji" src="emotions/happy.png"/> Excited</td>
               <td class="emotions" id="angry"><img class="emoji" src="emotions/angry.png"/> Angry</td>
             </tr>
+            <tr><td>   </td></tr>
+            <tr><td>   </td></tr>
+            <tr><td>   </td></tr>
             <tr>
               <td class="emotions" id="loved"><img class="emoji" src="emotions/wink.png"/> Loved</td>
               <td class="emotions" id="stressed"><img class="emoji" src="emotions/wondering.png"/> Stress</td>
@@ -57,9 +61,6 @@
             </tbody>
           </table> <input type="hidden" id="emotionField" name="emotion" value="default">
         {{else}}
-          {{#if verA}}
-
-          {{else}}
             <select name="emotion" class="form-control input-sm" placeholder="Select your emotion">
               <option value="default">How are you feeling?</option>
               <option value="happy">Happy</option>
@@ -73,7 +74,6 @@
               <option value="proud">Proud</option>
               <option value="stressed">Stressed</option>
             </select>
-          {{/if}}
         {{/if}}
 
         <div class="input-group input-group-sm tagSelect">

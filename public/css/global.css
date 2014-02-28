@@ -128,7 +128,7 @@ a.thumbnail:hover {
 
 .activeSort{
     color: #082C36;
-    font-size: 18pt;
+    font-size:16pt;
 }
 
 .inactiveSort{
@@ -166,15 +166,10 @@ a.thumbnail:hover {
     color:#082C36;
 }
 
-select.emotionSelect option {
-    background-repeat:no-repeat;
-    background-position:bottom left;
-    padding-left:30px;
-}
-
 .emotionSelect{
-    width:95%;
-    margin:0px 10px;
+    width:94%;
+    margin:0px 5px;
+    font-size:10pt;
 }
 
 .emoji{
