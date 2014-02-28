@@ -213,8 +213,16 @@ a.thumbnail:hover {
     padding:10px;
 }
 
+.emotionsT{
+    padding:0px;
+}
+
 a:hover,
 a:focus,
 a:active {
     text-decoration: none;
+}
+
+.twitter-typeahead{
+    width: 100%;
 }
