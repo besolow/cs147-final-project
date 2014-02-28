@@ -43,3 +43,15 @@ exports.sortTag = function(req, res) {
     }
 
 }
+
+exports.tagSuggestions = function(req, res) {
+    var user = req.session.username;
+    if(!user){
+        res.json({});
+    }
+    models.Entry
+        .distinct('tags', {'username': user}, function(err, result) {
+            if(err) console.log(err);
+            res.json(result);
+        });
+}

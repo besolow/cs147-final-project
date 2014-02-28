@@ -8,7 +8,6 @@ var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars');
 var mongoose = require('mongoose');
-
 moment = require('./public/js/moment.min.js');
 
 var login = require('./routes/login');
@@ -44,8 +43,12 @@ hbs = handlebars.create({
     helpers: {
         //usage: {{dateFormat 1392115303100 format="MM/DD/YYYY"}}
         dateFormat: function(context, block) {
-                var f = block.hash.format || "MMM DD, YYYY hh:mm:ss A";
-                return moment(context).format(f); //had to remove Date(context)
+            var f = block.hash.format || "MMM DD, YYYY hh:mm:ss A";
+            return moment(context).format(f); //had to remove Date(context)
+        },
+
+        breakLines: function(text) {
+            return text.replace(/(\r\n|\n|\r)/gm, '<br>');
         }
     }
 });
@@ -82,6 +85,7 @@ app.get('/login', login.view);
 app.get('/home', home.view);
 app.get('/time', time.view);
 app.get('/tags/:sortBy', tags.sortTag);
+app.get('/tag_suggest.json', tags.tagSuggestions);
 app.get('/emotion', emotion.view);
 app.get('/entry/:_id', entry.view);
 app.get('/create_new', create_new.view);
@@ -89,7 +93,7 @@ app.get('/edit/:_id', edit.view);
 app.get('/settings', settings.view);
 app.get('/search', search.view);
 app.post('/login_action', user.login);
-app.post('/logout', user.logout);
+app.get('/logout', user.logout);
 app.post('/changePass', user.changePass);
 //app.get('/tag_sort/:sortBy', tag_sort.sortTag);
 app.post('/delete_entry', delete_entry.deleteEntry);
