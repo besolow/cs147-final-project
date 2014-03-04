@@ -226,3 +226,11 @@ a:active {
 .twitter-typeahead{
     width: 100%;
 }
+
+.non-button-addon {
+  background: white;
+}
+
+#addtag-text {
+  border-left: none;
+}
