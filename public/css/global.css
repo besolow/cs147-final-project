@@ -188,7 +188,54 @@ a.thumbnail:hover {
     min-width: 70px;
 }
 
+<<<<<<< HEAD
 #imfeeling{
     font-style: italic;
     margin:0px;
+=======
+#emotionDropBox{
+    background-color: #fff;
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+}
+
+#emotionDrop{
+    display: inline-block;
+}
+#emotionDrop img{
+    max-width: 15px;
+    max-height: 15px;
+    vertical-align: text-top;
+}
+
+.emotionDropOptions{
+    width:100%;
+    min-width: none;
+}
+
+.emotions{
+    padding:10px;
+}
+
+.emotionsT{
+    padding:0px;
+}
+
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+}
+
+.twitter-typeahead{
+    width: 100%;
+}
+
+.newEntrySmiley{
+    font-size: 14px;
+}
+
+.tableSpace{
+    padding:5px;
 }
