@@ -173,8 +173,10 @@ a.thumbnail:hover {
 }
 
 #imfeeling{
-    font-style: italic;
-    margin:0px;
+    font-size: 12pt;
+    margin-left:0px;
+    margin-bottom: 5px;
+    color: #196966;
 }
 
 .emoji{
