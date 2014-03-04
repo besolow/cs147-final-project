@@ -58,7 +58,7 @@ $(document).ready(function() {
               var emotionValue = (emotion == 'default') ? 'no' : 'yes';
               ga("send", "event", "save", "click", emotionValue, {
                 'hitCallback': function() {
-                  return true;
+                  $(".entry-form").submit();
                 }
               });
             }
