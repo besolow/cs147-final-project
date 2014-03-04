@@ -173,8 +173,10 @@ a.thumbnail:hover {
 }
 
 #imfeeling{
-    font-style: italic;
-    margin:0px;
+    font-size: 12pt;
+    margin-left:0px;
+    margin-bottom: 5px;
+    color: #196966;
 }
 
 .emoji{
@@ -197,11 +199,16 @@ a.thumbnail:hover {
     background-color: #fff;
     width: 100%;
     padding: 5px 10px;
-    border-radius: 3pt;
+    border: 1px solid #ccc;
 }
 
 #emotionDrop{
-    display: block;
+    display: inline-block;
+}
+#emotionDrop img{
+    max-width: 15px;
+    max-height: 15px;
+    vertical-align: text-top;
 }
 
 .emotionDropOptions{
@@ -233,4 +240,12 @@ a:active {
 
 #addtag-text {
   border-left: none;
+}
+
+.newEntrySmiley{
+    font-size: 14px;
+}
+
+.tableSpace{
+    padding:5px;
 }
