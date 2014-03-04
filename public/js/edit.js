@@ -55,7 +55,7 @@ $(document).ready(function() {
             if(document.title != 'Edit') {
               var emotion = $("#emotionField").val();
               var emotionValue = (emotion == 'default') ? 'no' : 'yes';
-              ga("send", "event", "save", emotionValue);
+              ga("send", "event", "save", "click", emotionValue);
             }
         }
     })
