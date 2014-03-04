@@ -200,15 +200,15 @@ a.thumbnail:hover {
     width: 100%;
     padding: 5px 10px;
     border: 1px solid #ccc;
+    border-left: none;
 }
 
-#emotionDrop{
-    display: inline-block;
-}
 #emotionDrop img{
+    display: inline-block;
     max-width: 15px;
     max-height: 15px;
     vertical-align: text-top;
+
 }
 
 .emotionDropOptions{
@@ -240,6 +240,7 @@ a:active {
 
 #addtag-text {
   border-left: none;
+  background: white;
 }
 
 .newEntrySmiley{

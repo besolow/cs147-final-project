@@ -48,8 +48,15 @@ $(document).ready(function() {
     });
 
     $('#entrySubmitBtn').click(function(e) {
+        /* if text present then don't show error message */
         if($("#entryText").val()!="") {
             e.stopImmediatePropagation();
+            /* hacky test to only log click events on new entry */
+            if(document.title != 'Edit') {
+              var emotion = $("#emotionField").val();
+              var emotionValue = (emotion == 'default') ? 'no' : 'yes';
+              ga("send", "event", "save", emotionValue);
+            }
         }
     })
  
