@@ -51,11 +51,16 @@ $(document).ready(function() {
         /* if text present then don't show error message */
         if($("#entryText").val()!="") {
             e.stopImmediatePropagation();
+            e.preventDefault();
             /* hacky test to only log click events on new entry */
             if(document.title != 'Edit') {
               var emotion = $("#emotionField").val();
               var emotionValue = (emotion == 'default') ? 'no' : 'yes';
-              ga("send", "event", "save", "click", emotionValue);
+              ga("send", "event", "save", "click", emotionValue, {
+                'hitCallback': function() {
+                  return true;
+                }
+              });
             }
         }
     })
