@@ -51,17 +51,14 @@
         <br>
 
         {{#if B}}
-
-         <div class="input-group dropdown">
+         <div class="input-group input-group-sm">
           <span class="input-group-addon">
-            <span class="glyphicon glyphicon-heart"></span>
+            <span class="fa fa-smile-o newEntrySmiley"></span>
           </span>
-          <div id="emotionDropBox">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="emotionDrop">Feeling<span class="text-right"> </span></a></div>
-          <input type="hidden" id="emotionField" name="emotion" value="default">
-          <span class="input-group-addon dropdown-toggle" data-toggle="dropdown">
-            <b class="caret"></b>
-          </span>
+          <div id="emotionDropBox" data-toggle="dropdown" >
+            <a href="#" class="dropdown-toggle" id="emotionDrop">Feeling</a>
+            <span class="pull-right"><b class="caret"></b></span>
+          </div>
             <ul class="dropdown-menu emotionDropOptions">
               <li class="emotions" id="happy"><img class="emoji" src="emotions/smiley.png"/>  Happy</li>
               <li class="emotions" id="sad"><img class="emoji" src="emotions/sad.png"/>  Sad</li>
@@ -74,44 +71,44 @@
               <li class="emotions" id="relaxed"><img class="emoji" src="emotions/cool.png"/>  Relaxed</li>
               <li class="emotions" id="meh"><img class="emoji" src="emotions/confused.png"/>  Meh</li>
             </ul>
+
+            <input type="hidden" id="emotionField" name="emotion" value="default">
         </div>
         {{else}}
           {{#if C}}
-          <p id="imfeeling">I'm feeling...</p>
-            <table class="emotionSelect">
-              <tbody>
-              <tr>
-                <td class="emotionsT" id="happy"><img class="emoji" src="emotions/smiley.png"/> Happy</td>
-                <td class="emotionsT" id="sad"><img class="emoji" src="emotions/sad.png"/> Sad</td>
-                <td class="emotionsT" id="excited"><img class="emoji" src="emotions/happy.png"/> Excited</td>
-                <td class="emotionsT" id="angry"><img class="emoji" src="emotions/angry.png"/> Angry</td>
-              </tr>
-              <tr><td>   </td></tr>
-              <tr><td>   </td></tr>
-              <tr><td>   </td></tr>
-              <tr>
-                <td class="emotionsT" id="loved"><img class="emoji" src="emotions/wink.png"/> Loved</td>
-                <td class="emotionsT" id="stressed"><img class="emoji" src="emotions/wondering.png"/> Stress</td>
-                <td class="emotionsT" id="proud"><img class="emoji" src="emotions/grin.png"/> Proud</td>
-                <td class="emotionsT" id="down"><img class="emoji" src="emotions/neutral.png"/> Down</td>
-              </tr>
-              </tbody>
-            </table> <input type="hidden" id="emotionField" name="emotion" value="default">
-          {{else}}
-            <select name="emotion" class="form-control input-sm" placeholder="Select your emotion">
-              <option value="default">How are you feeling?</option>
-              <option value="happy">Happy</option>
-              <option value="sad">Sad</option>
-              <option value="excited">Excited</option>
-              <option value="angry">Angry</option>
-              <option value="loved">Loved</option>
-              <option value="meh">Meh</option>
-              <option value="peaceful">Peaceful</option>
-              <option value="down">Down</option>
-              <option value="proud">Proud</option>
-              <option value="stressed">Stressed</option>
-            </select>
-          {{/if}}
+            <p id="imfeeling">I'm feeling...</p>
+              <table class="emotionSelect">
+                <tbody>
+                <tr>
+                  <td class="emotionsT" id="happy"><img class="emoji" src="emotions/smiley.png"/> Happy</td>
+                  <td class="emotionsT" id="sad"><img class="emoji" src="emotions/sad.png"/> Sad</td>
+                  <td class="emotionsT" id="excited"><img class="emoji" src="emotions/happy.png"/> Excited</td>
+                  <td class="emotionsT" id="angry"><img class="emoji" src="emotions/angry.png"/> Angry</td>
+                </tr>
+                <tr><td class="tableSpace"></td></tr>
+                <tr>
+                  <td class="emotionsT" id="loved"><img class="emoji" src="emotions/wink.png"/> Loved</td>
+                  <td class="emotionsT" id="stressed"><img class="emoji" src="emotions/wondering.png"/> Stress</td>
+                  <td class="emotionsT" id="proud"><img class="emoji" src="emotions/grin.png"/> Proud</td>
+                  <td class="emotionsT" id="down"><img class="emoji" src="emotions/neutral.png"/> Down</td>
+                </tr>
+                </tbody>
+              </table> <input type="hidden" id="emotionField" name="emotion" value="default">
+            {{else}}
+              <select name="emotion" class="form-control input-sm" placeholder="Select your emotion">
+                <option value="default">How are you feeling?</option>
+                <option value="happy">Happy</option>
+                <option value="sad">Sad</option>
+                <option value="excited">Excited</option>
+                <option value="angry">Angry</option>
+                <option value="loved">Loved</option>
+                <option value="meh">Meh</option>
+                <option value="peaceful">Peaceful</option>
+                <option value="down">Down</option>
+                <option value="proud">Proud</option>
+                <option value="stressed">Stressed</option>
+              </select>
+            {{/if}}
         {{/if}}
 
         <div class="input-group input-group-sm tagSelect">

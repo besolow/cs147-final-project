@@ -201,7 +201,12 @@ a.thumbnail:hover {
 }
 
 #emotionDrop{
-    display: block;
+    display: inline-block;
+}
+#emotionDrop img{
+    max-width: 15px;
+    max-height: 15px;
+    vertical-align: text-top;
 }
 
 .emotionDropOptions{
@@ -225,4 +230,12 @@ a:active {
 
 .twitter-typeahead{
     width: 100%;
+}
+
+.newEntrySmiley{
+    font-size: 14px;
+}
+
+.tableSpace{
+    padding:5px;
 }

@@ -5,9 +5,14 @@ $(document).ready(function() {
     $(".emotions").click(function(e){
         var emotion = $(this).closest('.emotions').attr('id');
         $("#emotionField").val(emotion);
-        var html = "I feel "+emotion+'<b class="caret"></b>';
+        var html = $(this).closest('.emotions').html();
         $("#emotionDrop").html(html);
-        $(".emotions").css('color', "#333");
+    });
+
+    $(".emotionsT").click(function(e){
+        var emotion = $(this).closest('.emotionsT').attr('id');
+        $("#emotionField").val(emotion);
+        $(".emotionsT").css('color', "#333");
         $(this).css('color', '#196966');
     });
 })
