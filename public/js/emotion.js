@@ -56,7 +56,7 @@ console.log("adding things");
           .attr("fill", "black")
            .attr("x", 10)
            .attr("y", function(d,i) {return i * 50 + 24;})
-           .text(function (d) {return d._id; })
+           .text(function (d) {return d._id+" ("+d.count+")"; })
 
   function click(d) {
     console.log(d._id);
