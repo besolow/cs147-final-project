@@ -172,6 +172,13 @@ a.thumbnail:hover {
     font-size:10pt;
 }
 
+#imfeeling{
+    font-size: 12pt;
+    margin-left:0px;
+    margin-bottom: 5px;
+    color: #196966;
+}
+
 .emoji{
     height:20px;
 }
@@ -188,25 +195,21 @@ a.thumbnail:hover {
     min-width: 70px;
 }
 
-<<<<<<< HEAD
-#imfeeling{
-    font-style: italic;
-    margin:0px;
-=======
+
 #emotionDropBox{
     background-color: #fff;
     width: 100%;
     padding: 5px 10px;
     border: 1px solid #ccc;
+    border-left: none;
 }
 
-#emotionDrop{
-    display: inline-block;
-}
 #emotionDrop img{
+    display: inline-block;
     max-width: 15px;
     max-height: 15px;
     vertical-align: text-top;
+
 }
 
 .emotionDropOptions{
@@ -230,6 +233,15 @@ a:active {
 
 .twitter-typeahead{
     width: 100%;
+}
+
+.non-button-addon {
+  background: white;
+}
+
+#addtag-text {
+  border-left: none;
+  background: white;
 }
 
 .newEntrySmiley{

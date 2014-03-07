@@ -2,6 +2,21 @@
 
 <html>
 <head>
+  <!-- Google Analytics Content Experiment code -->
+<script>function utmx_section(){}function utmx(){}(function(){var
+k='82951821-0',d=document,l=d.location,c=d.cookie;
+if(l.search.indexOf('utm_expid='+k)>0)return;
+function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
+indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
+length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
+'<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
+'://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
+'&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
+valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
+'" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
+</script><script>utmx('url','A/B');</script>
+<!-- End of Google Analytics Content Experiment code -->
+
   <title>Create New Entry</title>    
   <meta charset="utf-8">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -52,12 +67,12 @@
 
         {{#if B}}
          <div class="input-group input-group-sm">
-          <span class="input-group-addon">
+          <span class="input-group-addon non-button-addon">
             <span class="fa fa-smile-o newEntrySmiley"></span>
           </span>
-          <div id="emotionDropBox" data-toggle="dropdown" >
-            <a href="#" class="dropdown-toggle" id="emotionDrop">Feeling</a>
-            <span class="pull-right"><b class="caret"></b></span>
+          <div id="emotionDropBox" class="dropdown-toggle" data-toggle="dropdown" >
+            <a href="#"><span id="emotionDrop">Feeling</span>
+            <span class="pull-right"><b class="caret"></b></span></a>
           </div>
             <ul class="dropdown-menu emotionDropOptions">
               <li class="emotions" id="happy"><img class="emoji" src="emotions/smiley.png"/>  Happy</li>
@@ -95,7 +110,7 @@
                 </tbody>
               </table> <input type="hidden" id="emotionField" name="emotion" value="default">
             {{else}}
-              <select name="emotion" class="form-control input-sm" placeholder="Select your emotion">
+              <select name="emotion" id="emotionField" class="form-control input-sm" placeholder="Select your emotion">
                 <option value="default">How are you feeling?</option>
                 <option value="happy">Happy</option>
                 <option value="sad">Sad</option>
@@ -112,7 +127,7 @@
         {{/if}}
 
         <div class="input-group input-group-sm tagSelect">
-          <span class="input-group-addon">
+          <span class="input-group-addon non-button-addon">
             <span class="glyphicon glyphicon-tag"></span>
           </span>
           <input type="text" class="form-control" id="addtag-text" placeholder="Add tags"/>
@@ -136,5 +151,13 @@
     <script src="/js/typeahead.bundle.js"></script>
     <script src="/js/global.js"></script>
     <script src="/js/create_new.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-48620481-1', 'jrnl-app2.herokuapp.com');
+      ga('send', 'pageview');
+    </script>
   </body>
   </html>
