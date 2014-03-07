@@ -16,7 +16,7 @@ $(document).ready(function() {
     });
 
     $("#addtag-text").keydown(function(e) {
-        if(e.which === 13) {
+        if(e.which === 13 || e.which === 188) {
             $("#addtag").click();
             e.preventDefault();
         }
