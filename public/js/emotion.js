@@ -42,7 +42,7 @@ function addGraph(emotions) {
    .attr("height", 45)
    .attr("fill", "white")
    .transition()
-    .duration(300)
+    .duration(500)
     //.ease("quad")
     .attr("width", function(d) {return x(d.count); });
 
