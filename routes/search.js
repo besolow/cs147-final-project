@@ -11,13 +11,6 @@ exports.view = function(req, res) {
 
     var queryString = req.query.queryString;
 
-    var exp = /^[a-z0-9]+$/i;
-    if (!queryString.match(exp)){
-        var messages = req.session.messages || [];
-        messages.push(['danger', 'Oops! Try searching for word and numbers, not symbols!']);
-        res.redirect('/home');
-        return;
-    }
 
     var query = queryString.toLowerCase();
     var queryField = req.query.queryField;
@@ -41,7 +34,7 @@ exports.view = function(req, res) {
             .sort({"datetime":-1})
             .exec(afterFind);
     } else {
-        var re = new RegExp('.*'+queryString+'.*', 'i');
+        var re = new RegExp('.*'+strEscape(queryString)+'.*', 'i');
         console.log(re);
         models.Entry
             .find({"username":username, $or:[{text:{$regex: re}}, {tags:{$regex: re}}, {emotion:{$regex: re}}]})
@@ -77,4 +70,8 @@ exports.view = function(req, res) {
             'resultsText': resultsText
         });
     }
+}
+
+function strEscape(s) {
+    return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
 }
