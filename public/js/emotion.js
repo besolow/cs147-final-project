@@ -5,6 +5,7 @@
 $(document).ready(function() {
     var emotions = JSON.parse($("#emotionJSON").val());
     addGraph(emotions);
+
 })
 
 //fake data for now
@@ -16,11 +17,9 @@ $(document).ready(function() {
 
 
 //this is just playing around with d3 api
-var w = 300;
-var h = 400;
-// var x = d3.scale.linear()
-//     .domain([0, d3.max(data.count)])
-//     .range([0, w]);
+
+
+
 function addGraph(emotions) {
   var data = emotions.slice();
   for(var i = 0; i < data.length; i++) {
@@ -29,31 +28,46 @@ function addGraph(emotions) {
       break;
     }
   }
+  var w = 400;
+  var h = 400;
+  var x = d3.scale.linear()
+    .domain([0, d3.max(data, function(d) {return d.count; })])
+    .range([0, w-150]);
+
   console.log(data);
   console.log("adding svg");
-  var canvas = d3.select(".container")
-               .append("svg")
-               .attr("width", w)
-               .attr("height", h);
+  var canvas = d3.select(".container").append("svg")
+                .attr("width", w)
+                .attr("height", h)
+              .append("g")
+                //.attr("transform", "translate(20,0)");
 
-  canvas.selectAll("rect")
+  var bars = canvas.selectAll(".bar")
      .data(data)
-     .enter()
-       .append("rect")
-       .on("click", function(d){click(d)})
-       .attr("y", function(d,i) {return i * 50;})
-       .attr("width", function(d) {return d.count * 30;})
-       .attr("height", 45)
-       .attr("fill", "white");
+     .enter().append("g")
+     .attr("class", "bar")
+     //.attr("transform", function(d, i ) {return "translate("+0+","+(i*50) + ")"});
 
-  canvas.selectAll("text")
-      .data(data)
-      .enter()
-          .append("text")
-          .attr("fill", "#196966")
-           .attr("x", function(d) {return (d.count * 30)+5;})
-           .attr("y", function(d,i) {return i * 50 + 25;})
-           .text(function (d) {return d._id+" ("+d.count+")"; })
+  bars.append("rect")
+   .on("click", function(d){click(d)})
+   .attr("y", function(d,i) {return i * 50;})
+   .attr("width", 0)
+   .attr("height", 45)
+   .attr("fill", "white")
+   .transition()
+    .duration(300)
+    //.ease("quad")
+    .attr("width", function(d) {return x(d.count); });
+
+  bars.append("text")
+       .attr("x", function(d) {return x(d.count); })
+       .attr("dx", 10)
+       .attr("y", function(d,i) {return i * 50 + 25;})
+       .attr("text-anchor", "start")
+       .attr("fill", "#196966")
+       .text(function (d) {return d._id+" ("+d.count+")"; });
+
+
 
   function click(d) {
     console.log(d._id);
