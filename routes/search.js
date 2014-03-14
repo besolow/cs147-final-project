@@ -35,7 +35,6 @@ exports.view = function(req, res) {
             .exec(afterFind);
     } else {
         var re = new RegExp('.*'+strEscape(queryString)+'.*', 'i');
-        console.log(re);
         models.Entry
             .find({"username":username, $or:[{text:{$regex: re}}, {tags:{$regex: re}}, {emotion:{$regex: re}}]})
             .sort({"datetime":-1})

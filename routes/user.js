@@ -11,7 +11,6 @@ exports.login = function(req, res) {
         .exec(attemptLogin);
 
     function attemptLogin(err, user) {
-        console.log(user);
         if(err || !user[0]) {
             req.session.messages.push(['danger','User not found']);
             res.redirect('/login');
