@@ -6,6 +6,7 @@ exports.view = function(req, res) {
         var messages = req.session.messages || [];
         messages.push(['danger', 'Please login to continue']);
         res.redirect('/login');
+        return;
     }
     var _id = req.params._id;
 

@@ -14,7 +14,6 @@ exports.view = function(req, res) {
     }
 
     var _id = req.params._id;
-    console.log("id "+_id);
     models.Entry
         .find({
             "_id": _id,
@@ -26,8 +25,6 @@ exports.view = function(req, res) {
                 res.send(500);
             } else {
                 var entry = entries[0];
-                console.log(entries);
-                console.log(entries[0]);
                 var emotionText = "";
                 if (entry.emotion!="default"){
                     var emotionText = "I feel "+entry.emotion;

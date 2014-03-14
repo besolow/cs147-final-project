@@ -25,8 +25,6 @@ function initializePage() {
             $("#search-input").focus();
         }
     });
-
-    
     
     
     //make tags clickable to view by tag

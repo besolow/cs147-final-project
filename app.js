@@ -12,7 +12,6 @@ moment = require('./public/js/moment.min.js');
 
 var login = require('./routes/login');
 var user = require('./routes/user');
-var project = require('./routes/project');
 var home = require('./routes/home');
 var tags = require('./routes/tags');
 var time = require('./routes/time');

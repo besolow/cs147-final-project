@@ -31,6 +31,7 @@
           <span class="new-topbar-text">Edit</span>
           
           <input type="submit" id="entrySubmitBtn" class="btn btn-primary pull-right" data-toggle="modal" data-target="#emptyEntryError" value="Save"/>
+          
           <div class="modal fade" id="emptyEntryError" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -48,13 +49,6 @@
             </div>
           </div>
         </div>
-
-        </div>
-        <div class="text-left" id="editDateTime">
-        {{dateFormat entry.datetime format="MM/DD/YY HH:mm"}}
-        </div>
-
-
         <select id="editingEmotion" name="emotion" class="form-control input-sm" placeholder="Select your emotion!">
         {{#each emotions}}
           <option value="{{val}}" {{#if bool}}selected{{/if}}>{{text}}</option>
@@ -78,16 +72,36 @@
         </div>
         <input type="hidden" id="hiddenTags" name="hiddenTags" value="{{tagString}}"> 
       
-          <p class="text-right createDate">{{dateFormat entry.datetime format="MM/DD/YY HH:MM"}}</p>
+          <p class="text-left createDate">{{dateFormat entry.datetime format="MM/DD/YY HH:MM"}}</p>
           <div id="textEntryWrapper">
-          <textarea class="form-control" rows="14" name="entryText">{{entry.text}}</textarea>
+            <textarea class="form-control" rows="16" id="entryText" name="entryText">{{entry.text}}</textarea>
           </div>
         </form>
         <form action="/delete_entry" method="post">
           <input type="hidden" name="_id" value="{{entry._id}}"/>
-          <input type="submit" id="deleteButton" class="btn btn-primary btn-block" value="Delete"/>
+          <input type="submit" id="deleteButton" class="btn btn-primary btn-block" data-toggle="modal" data-target="#sureDelete" value="Delete"/>
         </form>
+
+        <div class="modal fade" id="sureDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body text-center">
+                  Are you sure you want to <br>delete the entry?
+                </div>
+                <div class="modal-footer">
+                <form action="/delete_entry" method="post">
+                  <button type="button" class="btn btn-default btn-sm pull-left" data-dismiss="modal">Cancel</button>
+                  <input type="hidden" name="_id" value="{{entry._id}}"/>
+                  <input type="submit" class="btn btn-primary" value="Delete"/>
+                </form>
+                  
+                </div>
+              </div>
+            </div>
+        </div>
+
       </div>
+    </div>
 
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="/js/edit.js"></script>

@@ -90,10 +90,11 @@ a.thumbnail:hover {
 
 #search-bar{
     display: none;
+    padding:0 10px;
 }
 
 #search-bar input {
-    width: 70%;
+    width: 75%;
     display: inline-block;
 }
 
@@ -123,7 +124,7 @@ a.thumbnail:hover {
 }
 
 #deleteButton {
-    margin-top: 10px;
+    margin: 10px 0 10px 0;
 }
 
 .activeSort{
@@ -250,4 +251,22 @@ a:active {
 
 .tableSpace{
     padding:5px;
+}
+
+#logo{
+    width:200px;
+    margin: 10px 0 0 0;
+}
+
+.navbutton{
+    text-shadow: none;
+    font-size: 20px;
+}
+
+.navtext{
+    text-shadow:none;
+}
+
+.modal-footer{
+    margin:0px;
 }

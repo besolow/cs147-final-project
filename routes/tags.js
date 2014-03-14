@@ -1,8 +1,16 @@
 var models = require('../models');
 
 exports.sortTag = function(req, res) {
+    var username = req.session.username;
+    if(!username){
+        var messages = req.session.messages || [];
+        messages.push(['danger', 'Please login to continue']);
+        res.redirect('/login');
+        return;
+    }
+
     var sortBy = req.params.sortBy;
-    var sortFull = ""
+    var sortFull = "";
     var user = req.session.username;
     if (sortBy === "pop"){
         sortFull = "popularity";

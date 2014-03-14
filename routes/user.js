@@ -13,15 +13,11 @@ exports.login = function(req, res) {
     function attemptLogin(err, user) {
         console.log(user);
         if(err || !user[0]) {
-            console.log('error looking up user');
             req.session.messages.push(['danger','User not found']);
             res.redirect('/login');
             return;
         }
-        console.log('found user '+user[0]);
-        console.log('looking for pw: '+password);
         if(user[0]['password'] == password) {
-            console.log('matched');
             req.session.username = username;
             res.redirect('/home');
         } else {

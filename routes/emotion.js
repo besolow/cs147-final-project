@@ -2,6 +2,12 @@ var models = require('../models');
 
 exports.view = function(req, res) {
     var user = req.session.username;
+    if(!user){
+        var messages = req.session.messages || [];
+        messages.push(['danger', 'Please login to continue']);
+        res.redirect('/login');
+        return;
+    }
     models.Entry
         .aggregate( 
             [

@@ -1,11 +1,11 @@
 <div class="navbar navbar-fixed-top upper-nav">
   <div class="navbar-header pull-left">
-    <a href="/home" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-home"/></a>
+    <a href="/home" class="btn btn-default btn-lg navbutton"><span class="glyphicon glyphicon-home"/></a>
   </div>
   <div class="settingsButton navbar-header pull-right">
-    <a href="/create_new" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-plus"/></a>
-    <a href="/#" class="btn btn-default btn-lg" id="search-button"><span class="glyphicon glyphicon-search"/></a>
-    <a href="/#" class="btn btn-default btn-lg" id="settings-button" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"/></a>
+    <a href="/create_new" class="btn btn-default btn-lg navbutton"><span class="glyphicon glyphicon-plus"/></a>
+    <a href="/#" class="btn btn-default btn-lg navbutton" id="search-button"><span class="glyphicon glyphicon-search"/></a>
+    <a href="/#" class="btn btn-default btn-lg navbutton" id="settings-button" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"/></a>
       <ul class="settingsDropdown dropdown-menu" role="menu" aria-labelledby="settingsDropdown">
         <li role="presentation"><a role="menuitem" tabindex="-1" href="/logout">Logout</a></li>
         <li role="presentation"><a role="menuitem" tabindex="-1" href="/settings">More</a></li>
@@ -15,8 +15,8 @@
   <div class="navbar navbar-fixed-top lower-nav" id="search-bar">
     <div class="navbar-header">
       <form class="search-form" action="/search" method="get">
-       <input type="text" class="form-control" id="search-input" name ="queryString" placeholder="Search">
-       <button class="btn btn-default">Submit</button>
+       <input type="text" class="form-control" id="search-input" name ="queryString" placeholder="Search anything...">
+       <button class="btn btn-default navtext">Search</button>
       </form>
     </div>
   </div>

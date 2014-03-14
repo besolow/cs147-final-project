@@ -4,7 +4,6 @@
 // Call this function when the page loads (the "ready" event)
 $(document).ready(function() {
     var emotions = JSON.parse($("#emotionJSON").val());
-    console.log("page ready");
     addGraph(emotions);
 })
 
@@ -37,8 +36,6 @@ function addGraph(emotions) {
                .attr("width", w)
                .attr("height", h);
 
-console.log("adding things");
-
   canvas.selectAll("rect")
      .data(data)
      .enter()
@@ -46,16 +43,16 @@ console.log("adding things");
        .on("click", function(d){click(d)})
        .attr("y", function(d,i) {return i * 50;})
        .attr("width", function(d) {return d.count * 30;})
-       .attr("height", 48)
+       .attr("height", 45)
        .attr("fill", "white");
 
   canvas.selectAll("text")
       .data(data)
       .enter()
           .append("text")
-          .attr("fill", "black")
-           .attr("x", 10)
-           .attr("y", function(d,i) {return i * 50 + 24;})
+          .attr("fill", "#196966")
+           .attr("x", function(d) {return (d.count * 30)+5;})
+           .attr("y", function(d,i) {return i * 50 + 25;})
            .text(function (d) {return d._id+" ("+d.count+")"; })
 
   function click(d) {

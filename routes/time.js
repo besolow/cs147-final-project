@@ -2,6 +2,12 @@ var models = require('../models');
 
 exports.view = function(req, res) {
     var user = req.session.username;
+    if(!user){
+        var messages = req.session.messages || [];
+        messages.push(['danger', 'Please login to continue']);
+        res.redirect('/login');
+        return;
+    }
     models.Entry
             .aggregate( 
                 [
@@ -20,7 +26,6 @@ exports.view = function(req, res) {
         for (i in months){
             months[i]['string'] = monthStrings[months[i]._id.month-1] +" "+ months[i]._id.year;
         }
-        console.log(months);
         res.render('time', {
             'months': months
         });
