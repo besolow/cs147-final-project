@@ -49,7 +49,7 @@ exports.createAccount = function(req, res) {
 
 				function afterSaving(err) { // this is a callback
 					if(err) {console.log(err); res.send(500); }
-					req.session.messages.push(['success','Account created!']);
+					req.session.messages.push(['success','Account created! Please log in below.']);
 					res.redirect('/login');
 				}
 			}

@@ -270,3 +270,8 @@ a:active {
 .modal-footer{
     margin:0px;
 }
+
+.alert-danger, .alert-success{
+    background-image: none;
+}
+
