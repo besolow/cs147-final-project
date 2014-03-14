@@ -8,17 +8,6 @@ $(document).ready(function() {
 
 })
 
-//fake data for now
-//var emotions = [
- // {"emotion":"happy", "count":5},
- // {"emotion":"tired", "count":2},
- // {"emotion":"sad", "count":4},
-//];
-
-
-//this is just playing around with d3 api
-
-
 
 function addGraph(emotions) {
   var data = emotions.slice();
@@ -28,14 +17,12 @@ function addGraph(emotions) {
       break;
     }
   }
-  var w = 400;
+  var w = 300;
   var h = 400;
   var x = d3.scale.linear()
     .domain([0, d3.max(data, function(d) {return d.count; })])
-    .range([0, w-150]);
+    .range([0, w-90]);
 
-  console.log(data);
-  console.log("adding svg");
   var canvas = d3.select(".container").append("svg")
                 .attr("width", w)
                 .attr("height", h)
@@ -70,7 +57,6 @@ function addGraph(emotions) {
 
 
   function click(d) {
-    console.log(d._id);
     window.location.href="/search?queryString="+d._id+"&queryField=emotion";
   }
 }
